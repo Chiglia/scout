@@ -1,7 +1,7 @@
-import { Component, output, input, OnInit } from '@angular/core';
+import { Component, output, input, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { SocialService, ServiceCategory, TimeSlot, DayOfWeek } from '../../models/scout.models';
 import { DAYS_METADATA } from '../../services/time-utils';
 
@@ -12,8 +12,9 @@ import { DAYS_METADATA } from '../../services/time-utils';
   templateUrl: './service-modal.html'
 })
 export class ServiceModalComponent implements OnInit {
-  service = input<SocialService | null>(null);
+  transloco = inject(TranslocoService);
 
+  service = input<SocialService | null>(null);
   close = output<void>();
   save = output<Omit<SocialService, 'id'> & { id?: string }>();
 
@@ -77,6 +78,6 @@ export class ServiceModalComponent implements OnInit {
   }
 
   getDayLabel(d: DayOfWeek): string {
-    return this.days.find(item => item.id === d)?.labelIt || d;
+    return this.transloco.translate(`days.${d}`) || d;
   }
 }

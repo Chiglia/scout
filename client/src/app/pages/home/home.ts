@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { ClanDataService } from '../../services/clan-data.service';
 import { ScoutMember, SocialService, Commitment } from '../../models/scout.models';
 import { TopBarComponent, ActiveTab } from '../../components/top-bar/top-bar';
@@ -44,6 +44,7 @@ import { WhatsAppModalComponent } from '../../components/modals/whatsapp-modal';
 })
 export class Home {
   clanData = inject(ClanDataService);
+  transloco = inject(TranslocoService);
 
   activeTab = signal<ActiveTab>('dashboard');
   toastMessage = signal<string | null>(null);
@@ -79,10 +80,10 @@ export class Home {
   saveMember(data: Omit<ScoutMember, 'commitments' | 'id'> & { id?: string }) {
     if (data.id) {
       this.clanData.updateMember(data.id, data);
-      this.showToast('Profilo scout aggiornato');
+      this.showToast(this.transloco.translate('toasts.memberUpdated'));
     } else {
       this.clanData.addMember({ ...data, commitments: [] });
-      this.showToast('Nuovo scout aggiunto al Clan');
+      this.showToast(this.transloco.translate('toasts.memberAdded'));
     }
     this.isMemberModalOpen.set(false);
   }
@@ -100,10 +101,10 @@ export class Home {
   saveService(data: Omit<SocialService, 'id'> & { id?: string }) {
     if (data.id) {
       this.clanData.updateService(data.id, data);
-      this.showToast('Servizio sociale aggiornato');
+      this.showToast(this.transloco.translate('toasts.serviceUpdated'));
     } else {
       this.clanData.addService(data);
-      this.showToast('Nuovo servizio aggiunto al catalogo');
+      this.showToast(this.transloco.translate('toasts.serviceAdded'));
     }
     this.isServiceModalOpen.set(false);
   }
@@ -113,7 +114,7 @@ export class Home {
     if (!mem) return;
     this.clanData.addCommitment(mem.id, data);
     this.isCommitmentModalOpen.set(false);
-    this.showToast('Impegno settimanale aggiunto');
+    this.showToast(this.transloco.translate('toasts.commitmentAdded'));
   }
 
   openCommitmentForCurrentScout() {
@@ -131,12 +132,17 @@ export class Home {
 
   runAutoAssign() {
     const res = this.clanData.autoAssign();
-    this.showToast(`Auto-assegnazione completata: ${res.assignedCount} ragazzi posizionati.`);
+    this.showToast(this.transloco.translate('toasts.autoAssignDone', { count: res.assignedCount }));
+  }
+
+  async loadSample() {
+    await this.clanData.loadSampleData();
+    this.showToast(this.transloco.translate('toasts.sampleLoaded'));
   }
 
   confirmReset() {
     this.clanData.resetAll();
     this.isConfirmResetOpen.set(false);
-    this.showToast('Tutti i dati sono stati cancellati');
+    this.showToast(this.transloco.translate('toasts.resetDone'));
   }
 }

@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { ClanDataService } from '../../services/clan-data.service';
 import { ScoutMember, SocialService } from '../../models/scout.models';
 import { MemberDetailComponent } from './member-detail';
@@ -14,6 +14,7 @@ import { MemberDetailComponent } from './member-detail';
 })
 export class MembersViewComponent {
   clanData = inject(ClanDataService);
+  transloco = inject(TranslocoService);
 
   openAddMember = output<void>();
   openEditMember = output<ScoutMember>();
@@ -59,7 +60,8 @@ export class MembersViewComponent {
   deleteMember(id: string) {
     const m = this.clanData.members().find(item => item.id === id);
     if (!m) return;
-    if (confirm(`Eliminare ${m.name} ${m.surname}?`)) {
+    const confirmMsg = this.transloco.translate('members.deleteConfirm', { name: `${m.name} ${m.surname}` });
+    if (confirm(confirmMsg)) {
       this.clanData.deleteMember(id);
       const remaining = this.clanData.members()[0];
       this.selectedMemberId.set(remaining ? remaining.id : null);

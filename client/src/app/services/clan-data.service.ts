@@ -1,12 +1,11 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { ScoutMember, SocialService, Commitment, ClanStatistics } from '../models/scout.models';
-import { SAMPLE_MEMBERS, SAMPLE_SERVICES } from './clan-sample-data';
 import { CompatibilityService } from './compatibility.service';
 import { CsvImportService, CsvImportResult } from './csv-import.service';
 
-const STORAGE_MEMBERS_KEY = 'scout_clan_members_v2';
-const STORAGE_SERVICES_KEY = 'scout_clan_services_v2';
-const STORAGE_BUFFER_KEY = 'scout_clan_buffer_v2';
+const STORAGE_MEMBERS_KEY = 'scout_clan_members_v3';
+const STORAGE_SERVICES_KEY = 'scout_clan_services_v3';
+const STORAGE_BUFFER_KEY = 'scout_clan_buffer_v3';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +32,7 @@ export class ClanDataService {
     for (const m of mems) {
       for (const s of servs) {
         totalPairs++;
-        if (this.compatService.check(m, s, buffer).isCompatible) {
-          compatiblePairs++;
-        }
+        if (this.compatService.check(m, s, buffer).isCompatible) compatiblePairs++;
       }
     }
 
@@ -58,17 +55,17 @@ export class ClanDataService {
       const savedMembers = localStorage.getItem(STORAGE_MEMBERS_KEY);
       const savedServices = localStorage.getItem(STORAGE_SERVICES_KEY);
       const savedBuffer = localStorage.getItem(STORAGE_BUFFER_KEY);
-
       if (savedBuffer) this.bufferMinutes.set(parseInt(savedBuffer, 10) || 15);
-
       if (savedMembers && savedServices) {
         this.members.set(JSON.parse(savedMembers));
         this.services.set(JSON.parse(savedServices));
       } else {
-        this.loadSampleData();
+        this.members.set([]);
+        this.services.set([]);
       }
     } catch {
-      this.loadSampleData();
+      this.members.set([]);
+      this.services.set([]);
     }
   }
 
@@ -171,11 +168,21 @@ export class ClanDataService {
     return res;
   }
 
-  loadSampleData() {
-    this.members.set(SAMPLE_MEMBERS);
-    this.services.set(SAMPLE_SERVICES);
-    this.bufferMinutes.set(15);
-    this.saveToStorage();
+  async loadSampleData(): Promise<void> {
+    try {
+      const [membersRes, servicesRes] = await Promise.all([
+        fetch('data/sample-members.json'),
+        fetch('data/sample-services.json')
+      ]);
+      const members = await membersRes.json();
+      const services = await servicesRes.json();
+      this.members.set(members);
+      this.services.set(services);
+      this.bufferMinutes.set(15);
+      this.saveToStorage();
+    } catch (e) {
+      console.error('Failed to load sample json data:', e);
+    }
   }
 
   resetAll() {

@@ -1,10 +1,9 @@
 import { Component, input, output, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { ScoutMember, SocialService } from '../../models/scout.models';
 import { ClanDataService } from '../../services/clan-data.service';
 import { CompatibilityService } from '../../services/compatibility.service';
-import { DAYS_METADATA } from '../../services/time-utils';
 
 @Component({
   selector: 'app-member-detail',
@@ -15,6 +14,7 @@ import { DAYS_METADATA } from '../../services/time-utils';
 export class MemberDetailComponent {
   clanData = inject(ClanDataService);
   compatService = inject(CompatibilityService);
+  transloco = inject(TranslocoService);
 
   member = input.required<ScoutMember>();
   edit = output<ScoutMember>();
@@ -38,7 +38,7 @@ export class MemberDetailComponent {
   });
 
   getDayLabel(day: string): string {
-    return DAYS_METADATA.find(d => d.id === day)?.labelIt || day;
+    return this.transloco.translate(`days.${day}`) || day;
   }
 
   assign(serviceId: string) {
