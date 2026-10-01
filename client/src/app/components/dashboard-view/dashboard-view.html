@@ -1,0 +1,162 @@
+<div class="space-y-6" *transloco="let t">
+  <!-- Hero Banner -->
+  <div class="bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900 text-white rounded-2xl p-6 sm:p-8 shadow-sm">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-600/50 text-amber-100 mb-3 border border-amber-500/30">
+        <i class="pi pi-compass text-xs"></i> Anno Scout 2026/2027 · Consiglio di Clan
+      </span>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
+        Organizzazione Servizi Sociali
+      </h1>
+      <p class="text-amber-100 text-sm leading-relaxed mb-6">
+        Incrocia in tempo reale gli impegni settimanali di ogni Rover e Scolta con i turni delle realtà di servizio sociale.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <button type="button" (click)="goToMatrix.emit()" class="px-4 py-2 text-xs font-semibold bg-white text-amber-950 rounded-xl hover:bg-amber-50 transition-colors shadow-sm cursor-pointer flex items-center gap-2">
+          <i class="pi pi-check-circle text-blue-600"></i>
+          Esplora Matrice Compatibilità
+        </button>
+        <button type="button" (click)="openImport.emit()" class="px-4 py-2 text-xs font-medium bg-amber-800/80 hover:bg-amber-700/80 text-white rounded-xl border border-amber-600/50 transition-colors cursor-pointer flex items-center gap-2">
+          <i class="pi pi-file-import"></i>
+          Importa Impegni (CSV/Excel)
+        </button>
+        <button type="button" (click)="autoAssign.emit()" class="px-4 py-2 text-xs font-bold bg-amber-500 hover:bg-amber-400 text-amber-950 rounded-xl transition-colors cursor-pointer flex items-center gap-2">
+          <i class="pi pi-sparkles"></i>
+          Lancia Assegnazione Automatica
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI Metrics Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.members') }}</span>
+      <span class="text-2xl font-bold text-slate-900 font-mono tabular-nums">{{ clanData.statistics().totalMembers }}</span>
+      <span class="text-[11px] text-slate-400 block mt-1">Rover & Scolte</span>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.services') }}</span>
+      <span class="text-2xl font-bold text-slate-900 font-mono tabular-nums">{{ clanData.statistics().totalServices }}</span>
+      <span class="text-[11px] text-slate-400 block mt-1">Realtà disponibili</span>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.neededCapacity') }}</span>
+      <span class="text-2xl font-bold text-slate-900 font-mono tabular-nums">{{ clanData.statistics().totalCapacityNeeded }}</span>
+      <span class="text-[11px] text-slate-400 block mt-1">Fabbisogno posti</span>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.assigned') }}</span>
+      <span class="text-2xl font-bold text-emerald-600 font-mono tabular-nums">{{ clanData.statistics().assignedCount }}</span>
+      <span class="text-[11px] text-emerald-600/80 block mt-1">Con servizio attivo</span>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.unassigned') }}</span>
+      <span class="text-2xl font-bold text-amber-600 font-mono tabular-nums">{{ clanData.statistics().unassignedCount }}</span>
+      <span class="text-[11px] text-amber-600/80 block mt-1">Da collocare</span>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+      <span class="text-xs text-slate-500 font-medium block mb-1">{{ t('stats.compatibilityRate') }}</span>
+      <span class="text-2xl font-bold text-blue-600 font-mono tabular-nums">{{ clanData.statistics().averageCompatibilityRate }}%</span>
+      <span class="text-[11px] text-blue-600/80 block mt-1">Fattibilità media</span>
+    </div>
+  </div>
+
+  <!-- Coverage & Status Cards -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Services Coverage -->
+    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-sm font-semibold text-slate-900">Copertura Servizi Sociali</h3>
+          <p class="text-xs text-slate-500">Stato di assegnazione per ciascuna realtà proposta</p>
+        </div>
+        <button type="button" (click)="goToServices.emit()" class="text-xs text-blue-600 hover:text-blue-800 font-medium cursor-pointer">
+          Vedi tutti &rarr;
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        @for (srv of clanData.services(); track srv.id) {
+          @let assigned = getAssignedScouts(srv.id);
+          <div class="p-3 rounded-lg border border-slate-100 bg-slate-50/50">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="font-medium text-xs text-slate-900">{{ srv.name }}</span>
+              <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded-full" [ngClass]="assigned.length >= srv.requiredCapacity ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'">
+                {{ assigned.length }} / {{ srv.requiredCapacity }} posti
+              </span>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-xs text-slate-600">
+              <span class="text-[11px] text-slate-500">{{ srv.organization }}</span>
+              <span class="text-slate-300">·</span>
+              @for (slot of srv.scheduleSlots; track $index) {
+                <span class="text-[11px] bg-white border border-slate-200 px-1.5 py-0.5 rounded text-slate-700">
+                  {{ getDayShort(slot.day) }} {{ slot.startTime }}-{{ slot.endTime }}
+                </span>
+              }
+            </div>
+            @if (assigned.length > 0) {
+              <div class="mt-2 pt-2 border-t border-slate-200/60 flex flex-wrap items-center gap-1.5">
+                <span class="text-[10px] uppercase font-bold text-slate-400">Assegnati:</span>
+                @for (scout of assigned; track scout.id) {
+                  <span class="text-[11px] bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-md font-medium">
+                    {{ scout.name }} {{ scout.surname }}
+                  </span>
+                }
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Clan Roster Status -->
+    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-sm font-semibold text-slate-900">Stato Ragazzi del Clan</h3>
+          <p class="text-xs text-slate-500">Verifica chi ha già un servizio e chi è in attesa</p>
+        </div>
+        <button type="button" (click)="goToMembers.emit()" class="text-xs text-blue-600 hover:text-blue-800 font-medium cursor-pointer">
+          Gestisci &rarr;
+        </button>
+      </div>
+
+      <div class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+        @for (m of clanData.members(); track m.id) {
+          @let assignedService = getService(m.assignedServiceId);
+          <div class="flex items-center justify-between p-2.5 rounded-lg border border-slate-100 hover:bg-slate-50">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center">
+                {{ m.name.charAt(0) }}{{ m.surname.charAt(0) }}
+              </div>
+              <div>
+                <span class="font-medium text-xs text-slate-900 block">{{ m.name }} {{ m.surname }}</span>
+                <span class="text-[11px] text-slate-500">{{ m.role | uppercase }} · {{ m.commitments.length }} impegni</span>
+              </div>
+            </div>
+            <div>
+              @if (assignedService) {
+                <span class="text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md font-medium">
+                  {{ assignedService.name }}
+                </span>
+              } @else {
+                <span class="text-[11px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-md font-medium">
+                  Da assegnare
+                </span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+        <span class="text-xs text-slate-500">Totale: {{ clanData.members().length }} Rover & Scolte</span>
+        <button type="button" (click)="openAddMember.emit()" class="text-xs font-medium text-blue-600 hover:text-blue-800 cursor-pointer flex items-center gap-1">
+          <i class="pi pi-plus text-xs"></i> Aggiungi nuovo ragazzo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

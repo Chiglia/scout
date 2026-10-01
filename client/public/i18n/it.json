@@ -1,4 +1,133 @@
 {
+  "app": {
+    "title": "Clan Scout · Organizzatore Servizi Sociali",
+    "subtitle": "Gestione disponibilità, incrocio orari e compatibilità servizi per Rover e Scolte",
+    "nav": {
+      "dashboard": "Panoramica",
+      "members": "Rover & Scolte",
+      "services": "Servizi Sociali",
+      "matrix": "Matrice Compatibilità",
+      "schedule": "Orario Settimanale"
+    },
+    "actions": {
+      "loadSample": "Carica Dati Esempio",
+      "resetData": "Azzera Dati",
+      "importData": "Importa Impegni",
+      "exportWhatsApp": "Condividi su WhatsApp",
+      "print": "Stampa Prospetto",
+      "autoAssign": "Calcola Assegnazione Ottimale",
+      "unassignAll": "Rimuovi Assegnazioni"
+    }
+  },
+  "stats": {
+    "members": "Rover & Scolte",
+    "services": "Servizi Sociali Proposti",
+    "neededCapacity": "Posti Servizio Richiesti",
+    "assigned": "Ragazzi Assegnati",
+    "unassigned": "In Attesa di Servizio",
+    "compatibilityRate": "Compatibilità Media"
+  },
+  "buffer": {
+    "label": "Buffer spostamenti / tragitto:",
+    "none": "0 min (stretto)",
+    "m15": "15 min",
+    "m30": "30 min",
+    "m45": "45 min"
+  },
+  "members": {
+    "title": "Gestione Ragazzi del Clan",
+    "subtitle": "Visualizza e aggiorna gli impegni scolastici, universitari, sportivi e personali di ciascuno",
+    "addMember": "Nuovo Ragazzo/a",
+    "editMember": "Modifica Profilo",
+    "deleteConfirm": "Sei sicuro di voler eliminare questo scout?",
+    "searchPlaceholder": "Cerca per nome o cognome...",
+    "filterRole": "Tutti i ruoli",
+    "filterAssigned": "Tutti gli stati",
+    "assignedOnly": "Assegnati",
+    "unassignedOnly": "Senza servizio",
+    "role": "Ruolo",
+    "roles": {
+      "novizio": "Novizio/a",
+      "rover": "Rover",
+      "scolta": "Scolta"
+    },
+    "year": "Anno di Clan",
+    "commitmentsCount": "impegni settimanali",
+    "addCommitment": "Aggiungi Impegno",
+    "noCommitments": "Nessun impegno inserito per questo ragazzo/a",
+    "assignedService": "Servizio Assegnato:",
+    "notAssigned": "Nessun servizio assegnato"
+  },
+  "commitments": {
+    "name": "Nome Impegno",
+    "day": "Giorno",
+    "start": "Inizio",
+    "end": "Fine",
+    "category": "Ambito",
+    "categories": {
+      "school": "Scuola / Liceo",
+      "university": "Università / Studio",
+      "sport": "Sport / Allenamenti",
+      "family": "Famiglia",
+      "work": "Lavoro / Tirocinio",
+      "scout": "Scout / Clan",
+      "health": "Salute / Corsi",
+      "other": "Altro"
+    }
+  },
+  "services": {
+    "title": "Catalogo Servizi Sociali",
+    "subtitle": "Tutte le proposte di servizio associativo ed extra-associativo per il Clan",
+    "addService": "Nuovo Servizio",
+    "editService": "Modifica Servizio",
+    "deleteConfirm": "Sei sicuro di voler eliminare questo servizio?",
+    "organization": "Ente / Realtà",
+    "location": "Luogo",
+    "contact": "Contatto Referente",
+    "capacity": "Capienza Richiesta",
+    "scoutsNeeded": "ragazzi necessari",
+    "schedule": "Orari Settimanali",
+    "assignedMembers": "Ragazzi Assegnati",
+    "compatibleCount": "Ragazzi compatibili",
+    "categories": {
+      "children": "Infanzia / Doposcuola",
+      "elderly": "Anziani",
+      "poverty": "Povertà / Mense / Caritas",
+      "disability": "Disabilità",
+      "health": "Salute / Pronto Soccorso",
+      "environment": "Ambiente",
+      "parish": "Comunità / Parrocchia",
+      "other": "Altro"
+    }
+  },
+  "matrix": {
+    "title": "Verifica Compatibilità Oraria",
+    "subtitle": "Incrocio automatico tra gli orari richiesti dai servizi e gli impegni settimanali dei ragazzi",
+    "scoutView": "Vista per Ragazzo",
+    "serviceView": "Vista per Servizio",
+    "matrixView": "Tabella Completa",
+    "compatible": "Compatibile",
+    "incompatible": "Incompatibile",
+    "conflicts": "Conflitti rilevati:",
+    "noConflicts": "Nessun conflitto d'orario! Il ragazzo è completamente libero.",
+    "assign": "Assegna",
+    "assigned": "Assegnato",
+    "removeAssignment": "Rimuovi",
+    "selectScout": "Seleziona un ragazzo dal menu a sinistra per vedere i servizi compatibili",
+    "selectService": "Seleziona un servizio per vedere tutti i ragazzi con orari compatibili"
+  },
+  "import": {
+    "title": "Importa Impegni Ragazzi",
+    "tabs": {
+      "csv": "Copia/Incolla Foglio o CSV",
+      "demo": "Ripristina Dati Esempio"
+    },
+    "csvInstructions": "Incolla direttamente le righe da Excel o Google Sheets, oppure scrivi con formato: Nome, Cognome, Giorno, Dalle, Alle, Attività",
+    "examplePlaceholder": "Matteo, Rossi, Lunedì, 16:00, 18:00, Lezioni Università\nSofia, Bianchi, Martedì, 18:30, 20:30, Allenamento Volley",
+    "btnProcess": "Elabora e Importa",
+    "success": "Importazione completata con successo!",
+    "errorsFound": "Alcune righe contengono errori:"
+  },
   "errors": {
     "pageNotFound": {
       "title": "Oops! Pagina non trovata",
@@ -6,6 +135,17 @@
     }
   },
   "common": {
-    "backToHome": "Torna alla Home"
+    "backToHome": "Torna alla Home",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "confirm": "Conferma",
+    "all": "Tutti",
+    "free": "Libero",
+    "busy": "Occupato",
+    "copy": "Copia",
+    "copied": "Copiato negli appunti!"
   }
 }

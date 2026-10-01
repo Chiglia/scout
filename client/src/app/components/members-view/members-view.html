@@ -1,0 +1,100 @@
+<div class="space-y-6" *transloco="let t">
+  <!-- Header Bar -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+    <div>
+      <h2 class="text-base font-bold text-slate-900">{{ t('members.title') }}</h2>
+      <p class="text-xs text-slate-500">{{ t('members.subtitle') }}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button type="button" (click)="openImport.emit()" class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 shadow-2xs cursor-pointer flex items-center gap-1.5">
+        <i class="pi pi-upload text-blue-600 text-xs"></i>
+        Importa Impegni (CSV/Excel)
+      </button>
+      <button type="button" (click)="openAddMember.emit()" class="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-2xs cursor-pointer flex items-center gap-1.5">
+        <i class="pi pi-plus text-xs"></i>
+        {{ t('members.addMember') }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Master-Detail Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <!-- Left List (5 cols) -->
+    <div class="lg:col-span-5 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-3">
+      <div class="space-y-2">
+        <div class="relative">
+          <i class="pi pi-search absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+          <input
+            type="text"
+            [ngModel]="searchQuery()"
+            (ngModelChange)="searchQuery.set($event)"
+            [placeholder]="t('members.searchPlaceholder')"
+            class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:bg-white"
+          />
+        </div>
+        <div class="flex items-center gap-2">
+          <select [ngModel]="roleFilter()" (ngModelChange)="roleFilter.set($event)" class="w-1/2 py-1 px-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+            <option value="all">Tutti i ruoli</option>
+            <option value="novizio">Noviziato</option>
+            <option value="rover">Rover</option>
+            <option value="scolta">Scolta</option>
+          </select>
+          <select [ngModel]="assignedFilter()" (ngModelChange)="assignedFilter.set($event)" class="w-1/2 py-1 px-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+            <option value="all">Tutti gli stati</option>
+            <option value="assigned">Solo Assegnati</option>
+            <option value="unassigned">Solo Senza Servizio</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-2 max-h-[560px] overflow-y-auto pr-1">
+        @for (m of filteredMembers(); track m.id) {
+          @let isSelected = selectedMemberId() === m.id;
+          @let assignedService = getService(m.assignedServiceId);
+          <div
+            (click)="selectedMemberId.set(m.id)"
+            [class]="isSelected ? 'border-blue-500 bg-blue-50/50 shadow-2xs' : 'border-slate-200 hover:border-slate-300 bg-white'"
+            class="p-3 rounded-lg border cursor-pointer transition-all flex items-center justify-between"
+          >
+            <div class="flex items-center gap-2.5">
+              <div [class]="isSelected ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-700'" class="w-8 h-8 rounded-full font-bold text-xs flex items-center justify-center">
+                {{ m.name.charAt(0) }}{{ m.surname.charAt(0) }}
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-semibold text-xs text-slate-900">{{ m.name }} {{ m.surname }}</span>
+                  <span class="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-slate-100 text-slate-600">{{ m.role }}</span>
+                </div>
+                <span class="text-[11px] text-slate-500 block">{{ m.commitments.length }} impegni</span>
+              </div>
+            </div>
+            <div class="text-right">
+              @if (assignedService) {
+                <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full inline-block">{{ assignedService.name }}</span>
+              } @else {
+                <span class="text-[10px] bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded-full inline-block">Non assegnato</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Right Inspector (7 cols) -->
+    <div class="lg:col-span-7 bg-white p-5 rounded-xl border border-slate-200 shadow-2xs">
+      @if (selectedMember(); as mem) {
+        <app-member-detail
+          [member]="mem"
+          (edit)="openEditMember.emit($event)"
+          (delete)="deleteMember($event)"
+          (addCommitment)="openAddCommitment.emit()"
+          (goToMatrix)="goToMatrix.emit()"
+        />
+      } @else {
+        <div class="p-8 text-center text-slate-400 text-xs">
+          Nessun ragazzo selezionato
+        </div>
+      }
+    </div>
+  </div>
+</div>

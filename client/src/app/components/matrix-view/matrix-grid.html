@@ -1,0 +1,69 @@
+<div class="bg-white rounded-xl border border-slate-200 shadow-2xs overflow-hidden">
+  <div class="p-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5 text-emerald-700 font-semibold">
+        <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 inline-block"></span> Compatibile
+      </span>
+      <span class="flex items-center gap-1.5 text-red-600 font-semibold">
+        <span class="w-3.5 h-3.5 rounded-full bg-red-400 inline-block"></span> Incompatibile
+      </span>
+      <span class="flex items-center gap-1.5 text-blue-700 font-semibold">
+        <span class="w-3.5 h-3.5 rounded-full bg-blue-600 inline-block"></span> Assegnato
+      </span>
+    </div>
+    <span class="text-slate-500 text-[11px]">Buffer: <strong>{{ clanData.bufferMinutes() }} min</strong></span>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-xs text-left border-collapse">
+      <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+        <tr>
+          <th class="py-3 px-4 min-w-[180px] sticky left-0 bg-slate-100 z-10 border-r border-slate-200 shadow-xs">Rover & Scolte</th>
+          @for (srv of clanData.services(); track srv.id) {
+            <th class="py-3 px-3 min-w-[140px] text-center border-r border-slate-200 last:border-r-0">
+              <span class="block font-bold text-slate-900 truncate" [title]="srv.name">{{ srv.name }}</span>
+              <span class="text-[10px] text-slate-500 font-normal block">
+                @for (slot of srv.scheduleSlots; track $index) {
+                  {{ getDayShort(slot.day) }} {{ slot.startTime }}-{{ slot.endTime }} 
+                }
+              </span>
+            </th>
+          }
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100">
+        @for (mem of clanData.members(); track mem.id) {
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-2.5 px-4 font-semibold text-slate-900 sticky left-0 bg-white hover:bg-slate-50 z-10 border-r border-slate-200 shadow-xs flex items-center justify-between">
+              <div>
+                <span>{{ mem.name }} {{ mem.surname }}</span>
+                <span class="text-[10px] text-slate-400 block font-normal capitalize">{{ mem.role }} · Anno {{ mem.year }}</span>
+              </div>
+              @if (mem.assignedServiceId) { <span class="w-2 h-2 rounded-full bg-blue-600"></span> }
+            </td>
+            @for (srv of clanData.services(); track srv.id) {
+              @let compat = checkCompat(mem, srv);
+              @let isAssignedHere = mem.assignedServiceId === srv.id;
+              <td class="py-2.5 px-2 text-center border-r border-slate-100 last:border-r-0">
+                @if (isAssignedHere) {
+                  <div class="inline-flex flex-col items-center">
+                    <span class="px-2 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded-md">Assegnato</span>
+                    <button type="button" (click)="unassignScout(mem.id)" class="text-[9px] text-red-500 hover:underline mt-0.5 cursor-pointer">Rimuovi</button>
+                  </div>
+                } @else if (compat.isCompatible) {
+                  <button type="button" (click)="assignScout(mem.id, srv.id)" class="w-7 h-7 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 inline-flex items-center justify-center font-bold text-xs cursor-pointer" title="Libero! Clicca per assegnare">
+                    <i class="pi pi-check"></i>
+                  </button>
+                } @else {
+                  <div class="w-7 h-7 rounded-lg bg-red-50 text-red-500 inline-flex items-center justify-center font-bold text-xs cursor-help border border-red-100" [title]="compat.conflicts[0]?.reason || 'Conflitto'">
+                    <i class="pi pi-times"></i>
+                  </div>
+                }
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

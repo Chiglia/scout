@@ -1,0 +1,8 @@
+{
+  "name": "Scout",
+  "description": "Scout application imported from GitHub repository Chiglia/scout.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

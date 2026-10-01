@@ -5,12 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve --host 0.0.0.0 --port 3000 --allowed-hosts",
+    "lint": "tsc --noEmit",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "deploy": "node deploy.js"
   },
   "private": true,
-  "packageManager": "npm@11.12.1",
   "dependencies": {
     "@angular/common": "^21.2.9",
     "@angular/compiler": "^21.2.9",

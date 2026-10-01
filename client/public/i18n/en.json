@@ -1,4 +1,133 @@
 {
+  "app": {
+    "title": "Scout Clan · Social Services Coordinator",
+    "subtitle": "Weekly commitment tracker, timetable cross-checker, and volunteer placement optimizer for Rover and Scolte",
+    "nav": {
+      "dashboard": "Overview",
+      "members": "Boys & Girls",
+      "services": "Social Services",
+      "matrix": "Compatibility Matrix",
+      "schedule": "Weekly Schedule"
+    },
+    "actions": {
+      "loadSample": "Load Sample Clan Data",
+      "resetData": "Reset All Data",
+      "importData": "Import Commitments",
+      "exportWhatsApp": "Share on WhatsApp",
+      "print": "Print Roster",
+      "autoAssign": "Compute Optimal Assignment",
+      "unassignAll": "Clear Assignments"
+    }
+  },
+  "stats": {
+    "members": "Rover & Scolte",
+    "services": "Proposed Services",
+    "neededCapacity": "Required Service Slots",
+    "assigned": "Assigned Scouts",
+    "unassigned": "Awaiting Placement",
+    "compatibilityRate": "Average Compatibility"
+  },
+  "buffer": {
+    "label": "Travel / commute buffer:",
+    "none": "0 min (tight)",
+    "m15": "15 min",
+    "m30": "30 min",
+    "m45": "45 min"
+  },
+  "members": {
+    "title": "Clan Members Management",
+    "subtitle": "View and update weekly academic, sport, family, and personal commitments for each scout",
+    "addMember": "New Scout",
+    "editMember": "Edit Profile",
+    "deleteConfirm": "Are you sure you want to delete this scout?",
+    "searchPlaceholder": "Search by name or surname...",
+    "filterRole": "All roles",
+    "filterAssigned": "All statuses",
+    "assignedOnly": "Assigned",
+    "unassignedOnly": "Unassigned",
+    "role": "Role",
+    "roles": {
+      "novizio": "Novice",
+      "rover": "Rover",
+      "scolta": "Scolta"
+    },
+    "year": "Clan Year",
+    "commitmentsCount": "weekly commitments",
+    "addCommitment": "Add Commitment",
+    "noCommitments": "No weekly commitments entered for this scout",
+    "assignedService": "Assigned Service:",
+    "notAssigned": "No service assigned yet"
+  },
+  "commitments": {
+    "name": "Activity Name",
+    "day": "Day",
+    "start": "Start",
+    "end": "End",
+    "category": "Category",
+    "categories": {
+      "school": "High School",
+      "university": "University / Study",
+      "sport": "Sports / Workouts",
+      "family": "Family",
+      "work": "Work / Internship",
+      "scout": "Scout / Clan",
+      "health": "Health / First Aid",
+      "other": "Other"
+    }
+  },
+  "services": {
+    "title": "Social Services Catalog",
+    "subtitle": "All volunteer opportunities available for the Clan in the local community",
+    "addService": "New Service",
+    "editService": "Edit Service",
+    "deleteConfirm": "Are you sure you want to delete this service?",
+    "organization": "Partner / Organization",
+    "location": "Location",
+    "contact": "Contact Person",
+    "capacity": "Required Capacity",
+    "scoutsNeeded": "scouts needed",
+    "schedule": "Weekly Slots",
+    "assignedMembers": "Assigned Scouts",
+    "compatibleCount": "Compatible scouts",
+    "categories": {
+      "children": "Children / Afterschool",
+      "elderly": "Elderly Care",
+      "poverty": "Poverty Relief / Food Kitchen",
+      "disability": "Disability Support",
+      "health": "Health / First Aid",
+      "environment": "Environment",
+      "parish": "Parish / Community",
+      "other": "Other"
+    }
+  },
+  "matrix": {
+    "title": "Schedule Compatibility Checker",
+    "subtitle": "Real-time collision detection between service requirements and individual scout timetables",
+    "scoutView": "By Scout",
+    "serviceView": "By Service",
+    "matrixView": "Full Grid Table",
+    "compatible": "Compatible",
+    "incompatible": "Incompatible",
+    "conflicts": "Detected conflicts:",
+    "noConflicts": "No schedule conflicts! The scout is completely free.",
+    "assign": "Assign",
+    "assigned": "Assigned",
+    "removeAssignment": "Remove",
+    "selectScout": "Select a scout from the list to see compatible services",
+    "selectService": "Select a service to see all available boys and girls"
+  },
+  "import": {
+    "title": "Import Scout Commitments",
+    "tabs": {
+      "csv": "Paste Sheet or CSV",
+      "demo": "Reset Demo Data"
+    },
+    "csvInstructions": "Paste directly from Excel or Google Sheets, or enter rows formatted as: Name, Surname, Day, Start, End, Activity",
+    "examplePlaceholder": "Matteo, Rossi, Monday, 16:00, 18:00, University Lecture\nSofia, Bianchi, Tuesday, 18:30, 20:30, Volleyball Practice",
+    "btnProcess": "Process & Import",
+    "success": "Import completed successfully!",
+    "errorsFound": "Some rows contained errors:"
+  },
   "errors": {
     "pageNotFound": {
       "title": "Oops! Page not found",
@@ -6,6 +135,17 @@
     }
   },
   "common": {
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit",
+    "confirm": "Confirm",
+    "all": "All",
+    "free": "Free",
+    "busy": "Busy",
+    "copy": "Copy",
+    "copied": "Copied to clipboard!"
   }
 }

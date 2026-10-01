@@ -1,0 +1,149 @@
+<div class="space-y-6" *transloco="let t">
+  <!-- Top Bar -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+    <div>
+      <h2 class="text-base font-bold text-slate-900">{{ t('matrix.title') }}</h2>
+      <p class="text-xs text-slate-500">{{ t('matrix.subtitle') }}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="flex items-center bg-slate-100 p-1 rounded-lg text-xs font-medium">
+        <button type="button" (click)="matrixSubView.set('grid')" [class]="matrixSubView() === 'grid' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600'" class="px-3 py-1 rounded-md cursor-pointer">
+          {{ t('matrix.matrixView') }}
+        </button>
+        <button type="button" (click)="matrixSubView.set('byMember')" [class]="matrixSubView() === 'byMember' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600'" class="px-3 py-1 rounded-md cursor-pointer">
+          {{ t('matrix.scoutView') }}
+        </button>
+        <button type="button" (click)="matrixSubView.set('byService')" [class]="matrixSubView() === 'byService' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600'" class="px-3 py-1 rounded-md cursor-pointer">
+          {{ t('matrix.serviceView') }}
+        </button>
+      </div>
+      <button type="button" (click)="autoAssign.emit()" class="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-2xs cursor-pointer flex items-center gap-1.5">
+        <i class="pi pi-sparkles text-xs"></i> Ottimizza Assegnazioni
+      </button>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 1: 2D GRID TABLE -->
+  @if (matrixSubView() === 'grid') {
+    <app-matrix-grid />
+  }
+
+  <!-- SUB-VIEW 2: BY MEMBER -->
+  @if (matrixSubView() === 'byMember') {
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Seleziona Scout:</span>
+        <div class="space-y-1.5 max-h-[550px] overflow-y-auto pr-1">
+          @for (m of clanData.members(); track m.id) {
+            <button type="button" (click)="selectedMemberId.set(m.id)" [class]="selectedMemberId() === m.id ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-50 hover:bg-slate-100 text-slate-800'" class="w-full text-left p-2.5 rounded-lg text-xs cursor-pointer flex items-center justify-between">
+              <span>{{ m.name }} {{ m.surname }}</span>
+              @if (m.assignedServiceId) {
+                <span class="text-[10px] px-1.5 py-0.2 rounded" [ngClass]="selectedMemberId() === m.id ? 'bg-blue-700 text-white' : 'bg-emerald-100 text-emerald-800 font-semibold'">Assegnato</span>
+              }
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-6">
+        @if (selectedMember(); as mem) {
+          <div class="border-b border-slate-100 pb-4">
+            <h3 class="text-base font-bold text-slate-900">{{ mem.name }} {{ mem.surname }}</h3>
+            <span class="text-xs text-slate-500">{{ mem.commitments.length }} impegni registrati</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <h4 class="font-bold text-xs uppercase tracking-wider text-emerald-700">Servizi Compatibili</h4>
+              @for (item of selectedMemberCompatibility(); track item.service.id) {
+                @if (item.result.isCompatible) {
+                  <div class="p-3 rounded-lg border border-emerald-200 bg-emerald-50/40 text-xs flex justify-between items-center">
+                    <div>
+                      <span class="font-bold text-slate-900 block">{{ item.service.name }}</span>
+                      <span class="text-[11px] text-slate-500 block">{{ item.service.organization }}</span>
+                    </div>
+                    @if (mem.assignedServiceId === item.service.id) {
+                      <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white">Assegnato</span>
+                    } @else {
+                      <button type="button" (click)="assignScout(mem.id, item.service.id)" class="px-2.5 py-1 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-md cursor-pointer">Assegna</button>
+                    }
+                  </div>
+                }
+              }
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-bold text-xs uppercase tracking-wider text-red-600">Servizi Incompatibili</h4>
+              @for (item of selectedMemberCompatibility(); track item.service.id) {
+                @if (!item.result.isCompatible) {
+                  <div class="p-3 rounded-lg border border-red-200 bg-red-50/30 text-xs space-y-1">
+                    <span class="font-bold text-slate-900 block">{{ item.service.name }}</span>
+                    <span class="text-[11px] text-red-700 block">• {{ item.result.conflicts[0]?.reason }}</span>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- SUB-VIEW 3: BY SERVICE -->
+  @if (matrixSubView() === 'byService') {
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Seleziona Servizio:</span>
+        <div class="space-y-1.5 max-h-[550px] overflow-y-auto pr-1">
+          @for (s of clanData.services(); track s.id) {
+            @let assigned = getAssignedScouts(s.id);
+            <button type="button" (click)="selectedServiceId.set(s.id)" [class]="selectedServiceId() === s.id ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-50 hover:bg-slate-100 text-slate-800'" class="w-full text-left p-2.5 rounded-lg text-xs cursor-pointer flex items-center justify-between">
+              <span class="truncate pr-2">{{ s.name }}</span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded font-mono shrink-0" [ngClass]="selectedServiceId() === s.id ? 'bg-blue-700 text-white' : 'bg-slate-200 text-slate-700'">
+                {{ assigned.length }} / {{ s.requiredCapacity }}
+              </span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="lg:col-span-8 bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-6">
+        @if (selectedService(); as serv) {
+          <div class="border-b border-slate-100 pb-4">
+            <h3 class="text-base font-bold text-slate-900">{{ serv.name }}</h3>
+            <span class="text-xs text-slate-500 block">{{ serv.organization }} · {{ serv.location }}</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <h4 class="font-bold text-xs uppercase tracking-wider text-emerald-700">Ragazzi Liberi e Compatibili</h4>
+              @for (item of selectedServiceCompatibility(); track item.member.id) {
+                @if (item.result.isCompatible) {
+                  <div class="p-3 rounded-lg border border-emerald-200 bg-emerald-50/40 text-xs flex justify-between items-center">
+                    <div>
+                      <span class="font-bold text-slate-900 block">{{ item.member.name }} {{ item.member.surname }}</span>
+                      <span class="text-[11px] text-slate-500 block capitalize">{{ item.member.role }}</span>
+                    </div>
+                    @if (item.isAssigned) {
+                      <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white">Assegnato qui</span>
+                    } @else {
+                      <button type="button" (click)="assignScout(item.member.id, serv.id)" class="px-2.5 py-1 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-md cursor-pointer">Assegna</button>
+                    }
+                  </div>
+                }
+              }
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-bold text-xs uppercase tracking-wider text-red-600">Ragazzi con Conflitti</h4>
+              @for (item of selectedServiceCompatibility(); track item.member.id) {
+                @if (!item.result.isCompatible) {
+                  <div class="p-3 rounded-lg border border-red-200 bg-red-50/30 text-xs space-y-1">
+                    <span class="font-bold text-slate-900 block">{{ item.member.name }} {{ item.member.surname }}</span>
+                    <span class="text-[11px] text-red-700 block">• {{ item.result.conflicts[0]?.reason }}</span>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>
