@@ -22,8 +22,6 @@ export class MemberModalComponent implements OnInit {
     surname: '',
     role: 'rover' as ScoutRole,
     year: 1,
-    phone: '',
-    email: '',
     notes: ''
   };
 
@@ -36,8 +34,6 @@ export class MemberModalComponent implements OnInit {
         surname: m.surname,
         role: m.role,
         year: m.year || 1,
-        phone: m.phone || '',
-        email: m.email || '',
         notes: m.notes || ''
       };
     }
