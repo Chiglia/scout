@@ -1,11 +1,11 @@
 {
   "app": {
-    "title": "Clan Scout · Organizzatore Servizi Sociali",
+    "title": "Clan Scout · Organizzatore Servizi ",
     "subtitle": "Gestione disponibilità, incrocio orari e compatibilità servizi per Rover e Scolte",
     "nav": {
       "dashboard": "Panoramica",
       "members": "Rover & Scolte",
-      "services": "Servizi Sociali",
+      "services": "Servizi ",
       "matrix": "Matrice Compatibilità",
       "schedule": "Orario Settimanale"
     },
@@ -21,7 +21,7 @@
   },
   "stats": {
     "members": "Rover & Scolte",
-    "services": "Servizi Sociali Proposti",
+    "services": "Servizi  Proposti",
     "neededCapacity": "Posti Servizio Richiesti",
     "assigned": "Ragazzi Assegnati",
     "unassigned": "In Attesa di Servizio",
@@ -76,7 +76,7 @@
     }
   },
   "services": {
-    "title": "Catalogo Servizi Sociali",
+    "title": "Catalogo Servizi ",
     "subtitle": "Tutte le proposte di servizio associativo ed extra-associativo per il Clan",
     "addService": "Nuovo Servizio",
     "editService": "Modifica Servizio",

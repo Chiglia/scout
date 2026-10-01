@@ -7,7 +7,7 @@ import { DAYS_METADATA } from './time-utils';
 })
 export class ExportService {
   generateWhatsAppSummary(members: ScoutMember[], services: SocialService[], bufferMinutes: number): string {
-    let text = `⚜️ *ASSEGNAZIONE SERVIZI SOCIALI CLAN* ⚜️\n`;
+    let text = `⚜️ *ASSEGNAZIONE SERVIZI CLAN* ⚜️\n`;
     text += `_Verificata con buffer spostamenti di ${bufferMinutes} min_\n\n`;
 
     services.forEach(service => {
@@ -21,7 +21,7 @@ export class ExportService {
       text += `🕒 Orario: ${slotsStr}\n`;
       text += `📍 Luogo: ${service.location}\n`;
       text += `👥 Posti richiesti: ${service.requiredCapacity}\n`;
-      
+
       if (assigned.length > 0) {
         text += `👉 Rover & Scolte assegnati:\n`;
         assigned.forEach(s => {
