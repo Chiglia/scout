@@ -4,72 +4,18 @@
     "name": "Sofia",
     "surname": "Micheli",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "13:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "13:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "thursday",
-        "startTime": "15:00",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c7",
-        "day": "thursday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "friday",
-        "startTime": "13:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c9",
-        "day": "friday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c10",
-        "day": "saturday",
-        "startTime": "13:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c11",
-        "day": "saturday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c2", "day": "monday", "startTime": "18:30", "endTime": "20:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "20:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "18:30", "endTime": "20:30" },
+      { "id": "c6", "day": "thursday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c7", "day": "thursday", "startTime": "18:30", "endTime": "20:30" },
+      { "id": "c8", "day": "friday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c9", "day": "friday", "startTime": "18:30", "endTime": "20:30" },
+      { "id": "c10", "day": "saturday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c11", "day": "saturday", "startTime": "18:30", "endTime": "20:30" },
+      { "id": "c12", "day": "sunday", "startTime": "18:30", "endTime": "20:30" }
     ]
   },
   {
@@ -77,54 +23,18 @@
     "name": "Caterina",
     "surname": "Furlan",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "15:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "16:30",
-        "endTime": "20:00"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "15:00",
-        "endTime": "16:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "09:00",
-        "endTime": "13:00"
-      },
-      {
-        "id": "c7",
-        "day": "friday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "saturday",
-        "startTime": "08:00",
-        "endTime": "17:00"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c2", "day": "monday", "startTime": "16:00", "endTime": "22:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c4", "day": "tuesday", "startTime": "20:00", "endTime": "22:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c6", "day": "wednesday", "startTime": "16:30", "endTime": "19:00" },
+      { "id": "c7", "day": "thursday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c8", "day": "friday", "startTime": "07:00", "endTime": "09:00" },
+      { "id": "c9", "day": "friday", "startTime": "13:00", "endTime": "16:30" },
+      { "id": "c10", "day": "saturday", "startTime": "07:00", "endTime": "08:00" },
+      { "id": "c11", "day": "saturday", "startTime": "17:00", "endTime": "22:30" },
+      { "id": "c12", "day": "sunday", "startTime": "14:00", "endTime": "22:30" }
     ]
   },
   {
@@ -132,36 +42,16 @@
     "name": "Pietro",
     "surname": "Carrara",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "14:00",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "15:00",
-        "endTime": "19:00"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "14:00",
-        "endTime": "19:00"
-      },
-      {
-        "id": "c4",
-        "day": "thursday",
-        "startTime": "14:00",
-        "endTime": "19:30"
-      },
-      {
-        "id": "c5",
-        "day": "friday",
-        "startTime": "14:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c2", "day": "monday", "startTime": "18:30", "endTime": "22:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c4", "day": "tuesday", "startTime": "19:00", "endTime": "22:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c6", "day": "wednesday", "startTime": "19:00", "endTime": "22:30" },
+      { "id": "c7", "day": "thursday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c8", "day": "thursday", "startTime": "19:30", "endTime": "22:30" },
+      { "id": "c9", "day": "friday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c10", "day": "saturday", "startTime": "07:00", "endTime": "22:30" }
     ]
   },
   {
@@ -169,42 +59,15 @@
     "name": "Francesco",
     "surname": "Rossi",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "15:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "15:00",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "21:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "15:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "15:00",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "16:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "18:00", "endTime": "21:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c5", "day": "thursday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c6", "day": "thursday", "startTime": "18:00", "endTime": "22:30" },
+      { "id": "c7", "day": "friday", "startTime": "07:00", "endTime": "16:00" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "22:30" },
+      { "id": "c9", "day": "sunday", "startTime": "07:00", "endTime": "09:00" }
     ]
   },
   {
@@ -212,115 +75,30 @@
     "name": "Alex",
     "surname": "Fasan",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "thursday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "friday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "17:30" }
     ]
   },
   {
     "id": "m_06_nicola_compagnin",
-    "name": "nicola",
-    "surname": "compagnin",
+    "name": "Nicola",
+    "surname": "Compagnin",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "15:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "17:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "15:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "17:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "15:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c6",
-        "day": "wednesday",
-        "startTime": "17:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "thursday",
-        "startTime": "15:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c8",
-        "day": "thursday",
-        "startTime": "17:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c9",
-        "day": "friday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c10",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "09:30"
-      },
-      {
-        "id": "c11",
-        "day": "saturday",
-        "startTime": "11:30",
-        "endTime": "21:00"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c2", "day": "monday", "startTime": "16:00", "endTime": "17:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c4", "day": "tuesday", "startTime": "16:00", "endTime": "17:00" },
+      { "id": "c5", "day": "wednesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c6", "day": "wednesday", "startTime": "16:00", "endTime": "17:00" },
+      { "id": "c7", "day": "thursday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c8", "day": "thursday", "startTime": "16:00", "endTime": "17:00" },
+      { "id": "c9", "day": "friday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c10", "day": "saturday", "startTime": "09:30", "endTime": "11:30" },
+      { "id": "c11", "day": "saturday", "startTime": "21:00", "endTime": "22:30" },
+      { "id": "c12", "day": "sunday", "startTime": "07:00", "endTime": "09:30" }
     ]
   },
   {
@@ -328,121 +106,27 @@
     "name": "Marco",
     "surname": "Lievore",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "10:30"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "08:30"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "12:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "08:30"
-      },
-      {
-        "id": "c6",
-        "day": "wednesday",
-        "startTime": "12:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "10:30"
-      },
-      {
-        "id": "c8",
-        "day": "thursday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c9",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "14:30"
-      },
-      {
-        "id": "c10",
-        "day": "friday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c11",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "10:30", "endTime": "14:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "08:30", "endTime": "12:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "08:30", "endTime": "12:30" },
+      { "id": "c4", "day": "thursday", "startTime": "10:30", "endTime": "14:30" },
+      { "id": "c5", "day": "friday", "startTime": "14:30", "endTime": "16:30" }
     ]
   },
   {
     "id": "m_08_caterina_riello",
-    "name": "caterina",
-    "surname": "riello",
+    "name": "Caterina",
+    "surname": "Riello",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "15:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "15:00",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "20:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "15:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "15:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "15:30",
-        "endTime": "17:00"
-      },
-      {
-        "id": "c7",
-        "day": "saturday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "15:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "18:00", "endTime": "20:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c5", "day": "thursday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c6", "day": "friday", "startTime": "07:00", "endTime": "15:30" },
+      { "id": "c7", "day": "friday", "startTime": "17:00", "endTime": "22:30" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c9", "day": "sunday", "startTime": "07:00", "endTime": "22:30" }
     ]
   },
   {
@@ -450,90 +134,13 @@
     "name": "Teresa",
     "surname": "Zacchigna",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "10:30",
-        "endTime": "12:00"
-      },
-      {
-        "id": "c3",
-        "day": "monday",
-        "startTime": "16:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c4",
-        "day": "monday",
-        "startTime": "21:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c6",
-        "day": "tuesday",
-        "startTime": "10:30",
-        "endTime": "12:00"
-      },
-      {
-        "id": "c7",
-        "day": "tuesday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c9",
-        "day": "wednesday",
-        "startTime": "18:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c10",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c11",
-        "day": "thursday",
-        "startTime": "18:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c12",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "16:00"
-      },
-      {
-        "id": "c13",
-        "day": "friday",
-        "startTime": "18:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c14",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "08:00", "endTime": "10:30" },
+      { "id": "c2", "day": "monday", "startTime": "18:30", "endTime": "21:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "08:00", "endTime": "10:30" },
+      { "id": "c4", "day": "tuesday", "startTime": "12:00", "endTime": "16:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "08:00", "endTime": "18:30" },
+      { "id": "c6", "day": "thursday", "startTime": "16:00", "endTime": "18:30" },
+      { "id": "c7", "day": "friday", "startTime": "16:00", "endTime": "18:30" }
     ]
   },
   {
@@ -541,90 +148,14 @@
     "name": "Sara",
     "surname": "Pistritto",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "13:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "16:00",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c5",
-        "day": "tuesday",
-        "startTime": "20:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c7",
-        "day": "wednesday",
-        "startTime": "16:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c9",
-        "day": "thursday",
-        "startTime": "16:00",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c10",
-        "day": "thursday",
-        "startTime": "20:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c11",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c12",
-        "day": "friday",
-        "startTime": "13:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c13",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c14",
-        "day": "saturday",
-        "startTime": "13:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "08:00", "endTime": "13:00" },
+      { "id": "c2", "day": "tuesday", "startTime": "08:00", "endTime": "16:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "18:00", "endTime": "20:00" },
+      { "id": "c4", "day": "wednesday", "startTime": "08:00", "endTime": "16:00" },
+      { "id": "c5", "day": "thursday", "startTime": "08:00", "endTime": "16:00" },
+      { "id": "c6", "day": "thursday", "startTime": "18:00", "endTime": "20:00" },
+      { "id": "c7", "day": "friday", "startTime": "08:00", "endTime": "13:00" },
+      { "id": "c8", "day": "saturday", "startTime": "08:00", "endTime": "13:00" }
     ]
   },
   {
@@ -632,24 +163,11 @@
     "name": "Alessandro",
     "surname": "Iaquinta",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "wednesday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "thursday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "22:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "22:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "19:00" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "19:00" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "22:30" }
     ]
   },
   {
@@ -657,151 +175,32 @@
     "name": "Pietro",
     "surname": "Zanon",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "14:00",
-        "endTime": "19:00"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "14:00",
-        "endTime": "20:30"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "14:00",
-        "endTime": "19:00"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "21:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "14:00",
-        "endTime": "19:00"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "14:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "saturday",
-        "startTime": "14:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c2", "day": "monday", "startTime": "19:00", "endTime": "22:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c4", "day": "tuesday", "startTime": "20:30", "endTime": "22:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c6", "day": "wednesday", "startTime": "19:00", "endTime": "21:30" },
+      { "id": "c7", "day": "thursday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c8", "day": "thursday", "startTime": "19:00", "endTime": "22:30" },
+      { "id": "c9", "day": "friday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c10", "day": "saturday", "startTime": "07:00", "endTime": "14:00" }
     ]
   },
   {
     "id": "m_13_emanuele_visentin",
-    "name": "emanuele",
-    "surname": "visentin",
+    "name": "Emanuele",
+    "surname": "Visentin",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "13:30",
-        "endTime": "15:00"
-      },
-      {
-        "id": "c5",
-        "day": "tuesday",
-        "startTime": "16:00",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c6",
-        "day": "tuesday",
-        "startTime": "21:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c8",
-        "day": "wednesday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c9",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c10",
-        "day": "thursday",
-        "startTime": "13:30",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c11",
-        "day": "thursday",
-        "startTime": "21:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c12",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c13",
-        "day": "friday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c14",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c15",
-        "day": "saturday",
-        "startTime": "12:00",
-        "endTime": "15:00"
-      },
-      {
-        "id": "c16",
-        "day": "saturday",
-        "startTime": "18:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "08:00", "endTime": "13:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "08:00", "endTime": "13:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "18:30", "endTime": "21:00" },
+      { "id": "c4", "day": "wednesday", "startTime": "08:00", "endTime": "13:30" },
+      { "id": "c5", "day": "thursday", "startTime": "08:00", "endTime": "13:30" },
+      { "id": "c6", "day": "thursday", "startTime": "18:30", "endTime": "21:00" },
+      { "id": "c7", "day": "friday", "startTime": "08:00", "endTime": "13:30" },
+      { "id": "c8", "day": "saturday", "startTime": "08:00", "endTime": "12:00" },
+      { "id": "c9", "day": "saturday", "startTime": "15:00", "endTime": "18:00" }
     ]
   },
   {
@@ -809,78 +208,12 @@
     "name": "Milena",
     "surname": "Barcellan",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "07:30"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c6",
-        "day": "wednesday",
-        "startTime": "09:30",
-        "endTime": "10:00"
-      },
-      {
-        "id": "c7",
-        "day": "wednesday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "14:00"
-      },
-      {
-        "id": "c9",
-        "day": "thursday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c10",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c11",
-        "day": "friday",
-        "startTime": "11:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c12",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:30", "endTime": "14:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "08:00", "endTime": "14:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "08:00", "endTime": "09:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "10:00", "endTime": "14:30" },
+      { "id": "c5", "day": "thursday", "startTime": "14:00", "endTime": "17:30" },
+      { "id": "c6", "day": "friday", "startTime": "08:00", "endTime": "11:30" }
     ]
   },
   {
@@ -888,72 +221,12 @@
     "name": "Leonardo",
     "surname": "Scudier",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "07:00",
-        "endTime": "14:00"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "07:00",
-        "endTime": "14:00"
-      },
-      {
-        "id": "c4",
-        "day": "tuesday",
-        "startTime": "22:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "thursday",
-        "startTime": "07:00",
-        "endTime": "08:00"
-      },
-      {
-        "id": "c7",
-        "day": "thursday",
-        "startTime": "13:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "friday",
-        "startTime": "07:00",
-        "endTime": "14:00"
-      },
-      {
-        "id": "c9",
-        "day": "friday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c10",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "18:30"
-      },
-      {
-        "id": "c11",
-        "day": "saturday",
-        "startTime": "21:30",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "14:00", "endTime": "19:00" },
+      { "id": "c2", "day": "tuesday", "startTime": "14:00", "endTime": "22:00" },
+      { "id": "c3", "day": "thursday", "startTime": "08:00", "endTime": "13:00" },
+      { "id": "c4", "day": "friday", "startTime": "14:00", "endTime": "19:00" },
+      { "id": "c5", "day": "saturday", "startTime": "18:30", "endTime": "21:30" },
+      { "id": "c6", "day": "sunday", "startTime": "14:00", "endTime": "18:00" }
     ]
   },
   {
@@ -961,48 +234,14 @@
     "name": "Lorenzo",
     "surname": "Caldana",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "13:30",
-        "endTime": "17:30"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "13:30",
-        "endTime": "17:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "19:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "14:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "saturday",
-        "startTime": "12:30",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c3", "day": "tuesday", "startTime": "17:30", "endTime": "22:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "17:30", "endTime": "19:30" },
+      { "id": "c6", "day": "thursday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c7", "day": "friday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "12:30" }
     ]
   },
   {
@@ -1010,115 +249,29 @@
     "name": "Andrea",
     "surname": "Cester",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "13:00",
-        "endTime": "16:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "13:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "thursday",
-        "startTime": "16:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "friday",
-        "startTime": "13:00",
-        "endTime": "16:30"
-      },
-      {
-        "id": "c7",
-        "day": "friday",
-        "startTime": "17:30",
-        "endTime": "18:00"
-      },
-      {
-        "id": "c8",
-        "day": "friday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c9",
-        "day": "saturday",
-        "startTime": "12:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "13:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "16:30", "endTime": "19:00" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "13:00" },
+      { "id": "c5", "day": "thursday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c6", "day": "friday", "startTime": "07:00", "endTime": "13:00" },
+      { "id": "c7", "day": "friday", "startTime": "18:00", "endTime": "19:00" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "12:00" }
     ]
   },
   {
-    "id": "m_18_angela_luise09_gmail_com",
-    "name": "angela.luise09@gmail.com",
-    "surname": "",
+    "id": "m_18_angela_luise",
+    "name": "Angela",
+    "surname": "Luise",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "13:30",
-        "endTime": "17:30"
-      },
-      {
-        "id": "c2",
-        "day": "monday",
-        "startTime": "20:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "tuesday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "wednesday",
-        "startTime": "13:30",
-        "endTime": "17:30"
-      },
-      {
-        "id": "c5",
-        "day": "wednesday",
-        "startTime": "19:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "thursday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c7",
-        "day": "friday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c8",
-        "day": "saturday",
-        "startTime": "13:30",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c2", "day": "monday", "startTime": "17:30", "endTime": "20:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "17:30", "endTime": "19:00" },
+      { "id": "c6", "day": "thursday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c7", "day": "friday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "13:30" }
     ]
   },
   {
@@ -1126,42 +279,11 @@
     "name": "Pietro",
     "surname": "Cirillo",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "thursday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "friday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "17:30" }
     ]
   },
   {
@@ -1169,42 +291,40 @@
     "name": "Michela",
     "surname": "Visentin",
     "commitments": [
-      {
-        "id": "c1",
-        "day": "monday",
-        "startTime": "15:00",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c2",
-        "day": "tuesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c3",
-        "day": "wednesday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c4",
-        "day": "thursday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c5",
-        "day": "friday",
-        "startTime": "17:30",
-        "endTime": "22:30"
-      },
-      {
-        "id": "c6",
-        "day": "saturday",
-        "startTime": "07:00",
-        "endTime": "22:30"
-      }
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "17:30" }
+    ]
+  },
+  {
+    "id": "m_21_ettore_olivier",
+    "name": "Ettore",
+    "surname": "Olivier",
+    "commitments": [
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "14:30" },
+      { "id": "c6", "day": "saturday", "startTime": "07:00", "endTime": "14:00" }
+    ]
+  },
+  {
+    "id": "m_22_carlo_lievore",
+    "name": "Carlo",
+    "surname": "Lievore",
+    "commitments": [
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "17:30", "endTime": "21:00" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c5", "day": "thursday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c6", "day": "thursday", "startTime": "17:30", "endTime": "21:00" },
+      { "id": "c7", "day": "friday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "13:00" },
+      { "id": "c9", "day": "saturday", "startTime": "14:00", "endTime": "19:00" }
     ]
   }
 ]

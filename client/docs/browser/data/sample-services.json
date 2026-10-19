@@ -1,7 +1,7 @@
 [
   {
-    "id": "s_servizio_associativo",
-    "name": "Servizio Associativo",
+    "id": "s_servizio_associativo_pd6",
+    "name": "Servizio Associativo PD6",
     "organization": "AGESCI",
     "category": "association",
     "description": "Servizio associativo presso il gruppo scout.",
@@ -16,6 +16,27 @@
         "startTime": "08:30",
         "endTime": "12:30",
         "notes": "Servizio associativo della domenica mattina"
+      }
+    ]
+  },
+
+  {
+    "id": "s_servizio_associativo_pd5",
+    "name": "Servizio associativo PD5",
+    "organization": "AGESCI PD5",
+    "category": "association",
+    "description": "Servizio associativo presso il gruppo scout PD5.",
+    "location": "Sede del gruppo PD5",
+    "contactPerson": "Capo Gruppo",
+    "contactPhone": "",
+    "requiredCapacity": 3,
+    "color": "#2563EB",
+    "scheduleSlots": [
+      {
+        "day": "saturday",
+        "startTime": "16:00",
+        "endTime": "19:00",
+        "notes": "Servizio associativo del sabato pomeriggio"
       }
     ]
   },
@@ -76,6 +97,114 @@
         "startTime": "14:30",
         "endTime": "16:00",
         "notes": "Attività AttivaMente"
+      }
+    ]
+  },
+
+  {
+    "id": "s_aspea_promozionale",
+    "name": "Aspea promozionale",
+    "organization": "ASPEA",
+    "category": "association",
+    "description": "Servizio promozionale presso ASPEA.",
+    "location": "Sede ASPEA",
+    "contactPerson": "",
+    "contactPhone": "",
+    "requiredCapacity": 3,
+    "color": "#16A34A",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:30",
+        "endTime": "19:45",
+        "notes": "Attività promozionale"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:30",
+        "endTime": "19:45",
+        "notes": "Attività promozionale"
+      }
+    ]
+  },
+
+  {
+    "id": "s_aspea_agonisti",
+    "name": "ASPEA agonisti",
+    "organization": "ASPEA",
+    "category": "association",
+    "description": "Servizio presso ASPEA dedicato agli agonisti.",
+    "location": "Sede ASPEA",
+    "contactPerson": "",
+    "contactPhone": "",
+    "requiredCapacity": 3,
+    "color": "#16A34A",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      },
+      {
+        "day": "wednesday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      }
+    ]
+  },
+
+  {
+    "id": "s_doposcuola_guizza",
+    "name": "Doposcuola Guizza",
+    "organization": "Doposcuola Guizza",
+    "category": "education",
+    "description": "Servizio di doposcuola presso Guizza.",
+    "location": "Sede Doposcuola Guizza",
+    "contactPerson": "",
+    "contactPhone": "",
+    "requiredCapacity": 3,
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "tuesday",
+        "startTime": "16:15",
+        "endTime": "18:00",
+        "notes": "Attività di doposcuola"
+      },
+      {
+        "day": "thursday",
+        "startTime": "16:15",
+        "endTime": "18:00",
+        "notes": "Attività di doposcuola"
+      }
+    ]
+  },
+
+  {
+    "id": "s_catechismo_cristo_re",
+    "name": "Catechismo Cristo Re",
+    "organization": "Cristo Re",
+    "category": "education",
+    "description": "Servizio di catechismo presso la parrocchia Cristo Re.",
+    "location": "Parrocchia Cristo Re",
+    "contactPerson": "",
+    "contactPhone": "",
+    "requiredCapacity": 3,
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "saturday",
+        "startTime": "16:00",
+        "endTime": "19:00",
+        "notes": "Attività di catechismo"
       }
     ]
   }

@@ -1,11 +1,11 @@
 {
   "app": {
     "title": "Clan Scout · Servizi",
-    "subtitle": "Organizzatore Servizi Rover & Scolte",
+    "subtitle": "Organizzatore Servizi Rover",
     "yearBadge": "Anno Scout 2026/2027",
     "nav": {
       "dashboard": "Panoramica",
-      "members": "Rover & Scolte",
+      "members": "Rover",
       "services": "Servizi",
       "matrix": "Matrice Compatibilità",
       "schedule": "Orario Settimanale"
@@ -21,7 +21,7 @@
     }
   },
   "stats": {
-    "members": "Rover & Scolte",
+    "members": "Rover",
     "services": "Servizi Proposti",
     "neededCapacity": "Fabbisogno Posti",
     "assigned": "Ragazzi Assegnati",
@@ -37,7 +37,7 @@
   },
   "dashboard": {
     "heroTitle": "Organizzazione Servizi",
-    "heroSubtitle": "Incrocia in tempo reale gli impegni settimanali di ogni Rover e Scolta con i turni delle realtà di servizio.",
+    "heroSubtitle": "Incrocia in tempo reale gli impegni settimanali di ogni Rover con i turni delle realtà di servizio.",
     "exploreMatrix": "Esplora Matrice Compatibilità",
     "importCommitments": "Importa Impegni (CSV/Excel)",
     "launchAutoAssign": "Lancia Assegnazione Automatica",
@@ -55,10 +55,10 @@
     "availableEntities": "Realtà disponibili",
     "neededSlots": "Fabbisogno posti",
     "averageFeasibility": "Fattibilità media",
-    "roversAndScolte": "Rover & Scolte",
+    "roversAndScolte": "Rover",
     "assigned": "Assegnato",
     "unassigned": "Da assegnare",
-    "totalCount": "Totale: {{count}} Rover & Scolte",
+    "totalCount": "Totale: {{count}} Rover",
     "addNewBoy": "Aggiungi nuovo ragazzo",
     "emptyMembers": "Nessun ragazzo inserito. Carica i dati demo o aggiungine uno!",
     "emptyServices": "Nessun servizio inserito. Carica i dati demo o aggiungine uno!"
@@ -70,21 +70,14 @@
     "editMember": "Modifica Profilo",
     "deleteConfirm": "Sei sicuro di voler eliminare {{name}}?",
     "searchPlaceholder": "Cerca per nome o cognome...",
-    "filterRole": "Tutti i ruoli",
     "filterAssigned": "Tutti gli stati",
     "assignedOnly": "Solo Assegnati",
     "unassignedOnly": "Solo Senza Servizio",
-    "role": "Ruolo",
-    "roles": {
-      "novizio": "Noviziato",
-      "rover": "Rover",
-      "scolta": "Scolta"
-    },
-    "year": "Anno {{year}}",
-    "yearSelect": "Anno di Clan",
     "commitmentsCount": "impegni",
     "addCommitment": "Aggiungi Impegno",
     "noCommitments": "Nessun impegno inserito per questo ragazzo/a",
+    "invertAll": "Inverti orari di tutti",
+    "invertAllTitle": "Scambia impegni e tempo libero di tutti i membri e tutti i giorni, nella fascia 07:00–22:30",
     "assignedService": "Servizio Assegnato:",
     "notAssigned": "Nessun servizio assegnato",
     "removeAssignment": "Rimuovi Assegnazione",
@@ -98,33 +91,16 @@
     "noSelectedMember": "Nessun ragazzo selezionato",
     "phone": "Telefono",
     "email": "Email",
-    "notes": "Note / Mezzo di trasporto / Preferenze",
-    "firstYear": "1° Anno",
-    "secondYear": "2° Anno",
-    "thirdYear": "3° Anno",
-    "fourthYear": "4° Anno / Partenza"
+    "notes": "Note / Mezzo di trasporto / Preferenze"
   },
   "commitments": {
     "title": "Aggiungi Impegno per {{name}}",
-    "name": "Attività / Impegno",
+    "name": "Nome",
     "day": "Giorno",
     "time": "Orario",
     "start": "Ora Inizio",
     "end": "Ora Fine",
-    "category": "Ambito",
-    "actions": "Azioni",
-    "placeholderName": "es. Lezioni Università, Allenamento Volley...",
-    "categories": {
-      "school": "Scuola / Liceo",
-      "university": "Università / Studio",
-      "sport": "Sport / Allenamenti",
-      "family": "Famiglia",
-      "work": "Lavoro / Tirocinio",
-      "scout": "Scout / Reparto",
-      "health": "Salute / Corsi",
-      "parish": "Comunità / Parrocchia",
-      "other": "Altro"
-    }
+    "actions": "Azioni"
   },
   "services": {
     "title": "Catalogo Servizi",
@@ -194,8 +170,8 @@
   },
   "import": {
     "title": "Importa Impegni Ragazzi",
-    "csvInstructions": "Incolla direttamente le righe da Excel o Google Sheets, oppure scrivi con formato: Nome, Cognome, Giorno, Dalle, Alle, Attività",
-    "examplePlaceholder": "Matteo, Rossi, Lunedì, 16:00, 18:00, Lezioni Università\nSofia, Bianchi, Martedì, 18:30, 20:30, Allenamento Volley",
+    "csvInstructions": "Incolla direttamente le righe da Excel o Google Sheets, oppure scrivi con formato: Nome, Cognome, Giorno, Dalle, Alle",
+    "examplePlaceholder": "Matteo, Rossi, Lunedì, 16:00, 18:00\nSofia, Bianchi, Martedì, 18:30, 20:30",
     "pasteLabel": "Incolla qui il testo o foglio:",
     "loadDemoAlternative": "Oppure ricarica i dati demo di esempio",
     "btnProcess": "Elabora e Importa",

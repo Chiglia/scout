@@ -1,11 +1,11 @@
 {
   "app": {
     "title": "Scout Clan · Services",
-    "subtitle": "Services Coordinator for Rover & Scolte",
+    "subtitle": "Rover Services Coordinator",
     "yearBadge": "Scout Year 2026/2027",
     "nav": {
       "dashboard": "Overview",
-      "members": "Rover & Scolte",
+      "members": "Rovers",
       "services": "Services",
       "matrix": "Compatibility Matrix",
       "schedule": "Weekly Schedule"
@@ -21,7 +21,7 @@
     }
   },
   "stats": {
-    "members": "Rover & Scolte",
+    "members": "Rovers",
     "services": "Offered Services",
     "neededCapacity": "Required Capacity",
     "assigned": "Assigned Scouts",
@@ -37,7 +37,7 @@
   },
   "dashboard": {
     "heroTitle": "Services Coordinator",
-    "heroSubtitle": "Cross-reference weekly academic, sports, and family commitments for every Rover and Scolta with community service shifts in real time.",
+    "heroSubtitle": "Cross-reference weekly commitments for every Rover with community service shifts in real time.",
     "exploreMatrix": "Explore Compatibility Matrix",
     "importCommitments": "Import Commitments (CSV/Excel)",
     "launchAutoAssign": "Launch Automatic Assignment",
@@ -55,10 +55,10 @@
     "availableEntities": "Available partners",
     "neededSlots": "Required slots",
     "averageFeasibility": "Average feasibility",
-    "roversAndScolte": "Rover & Scolte",
+    "roversAndScolte": "Rovers",
     "assigned": "Assigned",
     "unassigned": "Unassigned",
-    "totalCount": "Total: {{count}} Rover & Scolte",
+    "totalCount": "Total: {{count}} Rovers",
     "addNewBoy": "Add new scout",
     "emptyMembers": "No scouts added yet. Load demo data or add the first one!",
     "emptyServices": "No services added yet. Load demo data or add the first one!"
@@ -70,21 +70,14 @@
     "editMember": "Edit Profile",
     "deleteConfirm": "Are you sure you want to delete {{name}}?",
     "searchPlaceholder": "Search by name or surname...",
-    "filterRole": "All roles",
     "filterAssigned": "All statuses",
     "assignedOnly": "Assigned only",
     "unassignedOnly": "Unassigned only",
-    "role": "Role",
-    "roles": {
-      "novizio": "Novice",
-      "rover": "Rover",
-      "scolta": "Scolta"
-    },
-    "year": "Year {{year}}",
-    "yearSelect": "Clan Year",
     "commitmentsCount": "commitments",
     "addCommitment": "Add Commitment",
     "noCommitments": "No commitments entered for this scout",
+    "invertAll": "Invert everyone’s schedule",
+    "invertAllTitle": "Swap commitments and free time for all members and days, between 07:00 and 22:30",
     "assignedService": "Assigned Service:",
     "notAssigned": "No service assigned",
     "removeAssignment": "Remove Assignment",
@@ -98,33 +91,16 @@
     "noSelectedMember": "No scout selected",
     "phone": "Phone",
     "email": "Email",
-    "notes": "Notes / Transportation / Preferences",
-    "firstYear": "1st Year",
-    "secondYear": "2nd Year",
-    "thirdYear": "3rd Year",
-    "fourthYear": "4th Year / Partenza"
+    "notes": "Notes / Transportation / Preferences"
   },
   "commitments": {
     "title": "Add Commitment for {{name}}",
-    "name": "Activity / Commitment",
+    "name": "Name",
     "day": "Day",
     "time": "Time",
     "start": "Start Time",
     "end": "End Time",
-    "category": "Category",
-    "actions": "Actions",
-    "placeholderName": "e.g. University Lecture, Volleyball Practice...",
-    "categories": {
-      "school": "High School",
-      "university": "University / Study",
-      "sport": "Sports / Workouts",
-      "family": "Family",
-      "work": "Work / Internship",
-      "scout": "Scout / Pack / Troop",
-      "health": "Health / Courses",
-      "parish": "Community / Parish",
-      "other": "Other"
-    }
+    "actions": "Actions"
   },
   "services": {
     "title": "Services Catalog",
@@ -194,8 +170,8 @@
   },
   "import": {
     "title": "Import Scout Commitments",
-    "csvInstructions": "Paste directly from Excel or Google Sheets, or enter rows formatted as: Name, Surname, Day, Start, End, Activity",
-    "examplePlaceholder": "Matteo, Rossi, Monday, 16:00, 18:00, University Lecture\nSofia, Bianchi, Tuesday, 18:30, 20:30, Volleyball Practice",
+    "csvInstructions": "Paste directly from Excel or Google Sheets, or enter rows formatted as: Name, Surname, Day, Start, End",
+    "examplePlaceholder": "Matteo, Rossi, Monday, 16:00, 18:00\nSofia, Bianchi, Tuesday, 18:30, 20:30",
     "pasteLabel": "Paste text or spreadsheet here:",
     "loadDemoAlternative": "Or reload sample demo data",
     "btnProcess": "Process & Import",
