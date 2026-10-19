@@ -9,6 +9,14 @@
     <div class="flex items-center gap-2">
       <button
         type="button"
+        (click)="invertAllCommitments()"
+        [title]="t('members.invertAllTitle')"
+        class="px-3 py-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-lg hover:bg-emerald-100 shadow-2xs cursor-pointer flex items-center gap-1.5"
+      >
+        <i class="pi pi-sync text-xs"></i> {{ t('members.invertAll') }}
+      </button>
+      <button
+        type="button"
         (click)="openImport.emit()"
         class="px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 shadow-2xs cursor-pointer flex items-center gap-1.5"
       >
@@ -37,21 +45,11 @@
             class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:bg-white"
           />
         </div>
-        <div class="flex items-center gap-2">
-          <select
-            [ngModel]="roleFilter()"
-            (ngModelChange)="roleFilter.set($event)"
-            class="w-1/2 py-1 px-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700"
-          >
-            <option value="all">{{ t('members.filterRole') }}</option>
-            <option value="novizio">{{ t('members.roles.novizio') }}</option>
-            <option value="rover">{{ t('members.roles.rover') }}</option>
-            <option value="scolta">{{ t('members.roles.scolta') }}</option>
-          </select>
+        <div>
           <select
             [ngModel]="assignedFilter()"
             (ngModelChange)="assignedFilter.set($event)"
-            class="w-1/2 py-1 px-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700"
+            class="w-full py-1 px-2 text-xs bg-slate-50 border border-slate-200 rounded-lg text-slate-700"
           >
             <option value="all">{{ t('members.filterAssigned') }}</option>
             <option value="assigned">{{ t('members.assignedOnly') }}</option>
@@ -84,10 +82,6 @@
                 <div class="flex items-center gap-1.5">
                   <span class="font-semibold text-xs text-slate-900"
                     >{{ m.name }} {{ m.surname }}</span
-                  >
-                  <span
-                    class="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-slate-100 text-slate-600"
-                    >{{ m.role }}</span
                   >
                 </div>
                 <span class="text-[11px] text-slate-500 block"

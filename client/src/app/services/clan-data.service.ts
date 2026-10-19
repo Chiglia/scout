@@ -1,11 +1,14 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
-import { ScoutMember, SocialService, Commitment, ClanStatistics } from '../models/scout.models';
+import { DayOfWeek, ScoutMember, SocialService, Commitment, ClanStatistics } from '../models/scout.models';
 import { CompatibilityService } from './compatibility.service';
 import { CsvImportService, CsvImportResult } from './csv-import.service';
+import { DAYS_METADATA, TimeUtils } from './time-utils';
 
 const STORAGE_MEMBERS_KEY = 'scout_clan_members_v3';
 const STORAGE_SERVICES_KEY = 'scout_clan_services_v3';
 const STORAGE_BUFFER_KEY = 'scout_clan_buffer_v3';
+const DAY_START_MINUTES = 7 * 60;
+const DAY_END_MINUTES = 22 * 60 + 30;
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +60,10 @@ export class ClanDataService {
       const savedBuffer = localStorage.getItem(STORAGE_BUFFER_KEY);
       if (savedBuffer) this.bufferMinutes.set(parseInt(savedBuffer, 10) || 15);
       if (savedMembers && savedServices) {
-        this.members.set(JSON.parse(savedMembers));
+        const normalizedMembers = this.normalizeMembers(JSON.parse(savedMembers));
+        this.members.set(normalizedMembers);
         this.services.set(JSON.parse(savedServices));
+        localStorage.setItem(STORAGE_MEMBERS_KEY, JSON.stringify(normalizedMembers));
       } else {
         this.members.set([]);
         this.services.set([]);
@@ -116,6 +121,124 @@ export class ClanDataService {
   removeCommitment(memberId: string, commitmentId: string) {
     this.members.update(l => l.map(m => m.id === memberId ? { ...m, commitments: m.commitments.filter(c => c.id !== commitmentId) } : m));
     this.saveToStorage();
+  }
+
+  invertAllMembersCommitments() {
+    this.members.update(members => members.map(member => {
+      let invertedMember = member;
+      for (const { id: day } of DAYS_METADATA) {
+        invertedMember = this.invertMemberDay(invertedMember, day);
+      }
+      return invertedMember;
+    }));
+    this.saveToStorage();
+  }
+
+  private invertMemberDay(member: ScoutMember, day: DayOfWeek): ScoutMember {
+    const dayCommitments = member.commitments.filter(commitment => commitment.day === day);
+    const outsideCommitments: Commitment[] = [];
+    const busySlots: { start: number; end: number }[] = [];
+
+    for (const commitment of dayCommitments) {
+      const start = TimeUtils.timeToMinutes(commitment.startTime);
+      const end = TimeUtils.timeToMinutes(commitment.endTime);
+      if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) {
+        outsideCommitments.push(commitment);
+        continue;
+      }
+      if (end <= DAY_START_MINUTES || start >= DAY_END_MINUTES) {
+        outsideCommitments.push(commitment);
+        continue;
+      }
+
+      if (start < DAY_START_MINUTES) {
+        const outsideEnd = Math.min(end, DAY_START_MINUTES);
+        if (outsideEnd > start) {
+          outsideCommitments.push({
+            ...commitment,
+            id: this.createCommitmentId(),
+            endTime: this.minutesToCommitmentTime(outsideEnd)
+          });
+        }
+      }
+      if (end > DAY_END_MINUTES) {
+        const outsideStart = Math.max(start, DAY_END_MINUTES);
+        if (end > outsideStart) {
+          outsideCommitments.push({
+            ...commitment,
+            id: this.createCommitmentId(),
+            startTime: this.minutesToCommitmentTime(outsideStart)
+          });
+        }
+      }
+
+      const busyStart = Math.max(start, DAY_START_MINUTES);
+      const busyEnd = Math.min(end, DAY_END_MINUTES);
+      if (busyEnd > busyStart) busySlots.push({ start: busyStart, end: busyEnd });
+    }
+
+    busySlots.sort((a, b) => a.start - b.start);
+    const mergedSlots: { start: number; end: number }[] = [];
+    for (const slot of busySlots) {
+      const previous = mergedSlots[mergedSlots.length - 1];
+      if (previous && slot.start <= previous.end) {
+        previous.end = Math.max(previous.end, slot.end);
+      } else {
+        mergedSlots.push({ ...slot });
+      }
+    }
+
+    const invertedCommitments: Commitment[] = [];
+    let freeStart = DAY_START_MINUTES;
+    for (const slot of mergedSlots) {
+      if (slot.start > freeStart) {
+        invertedCommitments.push(this.createInvertedCommitment(day, freeStart, slot.start));
+      }
+      freeStart = Math.max(freeStart, slot.end);
+    }
+    if (freeStart < DAY_END_MINUTES) {
+      invertedCommitments.push(this.createInvertedCommitment(day, freeStart, DAY_END_MINUTES));
+    }
+
+    const firstDayIndex = member.commitments.findIndex(commitment => commitment.day === day);
+    const insertAt = firstDayIndex < 0
+      ? member.commitments.length
+      : member.commitments.slice(0, firstDayIndex).filter(commitment => commitment.day !== day).length;
+    const commitments = member.commitments.filter(commitment => commitment.day !== day);
+    commitments.splice(insertAt, 0, ...outsideCommitments, ...invertedCommitments);
+    return { ...member, commitments };
+  }
+
+  private createInvertedCommitment(day: DayOfWeek, start: number, end: number): Commitment {
+    return {
+      id: this.createCommitmentId('c_inv'),
+      day,
+      startTime: TimeUtils.minutesToTime(start),
+      endTime: TimeUtils.minutesToTime(end)
+    };
+  }
+
+  private minutesToCommitmentTime(minutes: number): string {
+    return minutes === 24 * 60 ? '24:00' : TimeUtils.minutesToTime(minutes);
+  }
+
+  private createCommitmentId(prefix = 'c'): string {
+    return `${prefix}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+  }
+
+  private normalizeMembers(members: ScoutMember[]): ScoutMember[] {
+    return members.map(member => ({
+      id: member.id,
+      name: member.name,
+      surname: member.surname,
+      notes: member.notes,
+      commitments: member.commitments.map(commitment => {
+        const { name: _name, category: _category, ...normalizedCommitment } =
+          commitment as Commitment & { name?: string; category?: string };
+        return normalizedCommitment;
+      }),
+      assignedServiceId: member.assignedServiceId
+    }));
   }
 
   addService(service: Omit<SocialService, 'id'>): SocialService {
@@ -176,7 +299,7 @@ export class ClanDataService {
       ]);
       const members = await membersRes.json();
       const services = await servicesRes.json();
-      this.members.set(members);
+      this.members.set(this.normalizeMembers(members));
       this.services.set(services);
       this.bufferMinutes.set(15);
       this.saveToStorage();

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ScoutMember, Commitment, CommitmentCategory } from '../models/scout.models';
+import { ScoutMember, Commitment } from '../models/scout.models';
 import { TimeUtils } from './time-utils';
 
 export interface CsvImportResult {
@@ -50,8 +50,6 @@ export class CsvImportService {
       const rawDay = parts.length >= 5 ? parts[2] : parts[1];
       const rawStart = parts.length >= 5 ? parts[3] : parts[2];
       const rawEnd = parts.length >= 5 ? parts[4] : parts[3];
-      const activity = parts.length >= 6 ? parts[5] : (parts.length === 5 ? 'Impegno' : parts[4] || 'Impegno');
-
       const parsedDay = TimeUtils.normalizeDay(rawDay);
       if (!parsedDay) {
         errors.push(`Riga ${i + 1}: Giorno "${rawDay}" non riconosciuto.`);
@@ -73,8 +71,6 @@ export class CsvImportService {
           id: 'm_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
           name,
           surname,
-          role: 'rover',
-          year: 1,
           commitments: []
         };
         record = { member: newM, commitments: [] };
@@ -84,11 +80,9 @@ export class CsvImportService {
 
       record.commitments.push({
         id: 'c_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
-        name: activity,
         day: parsedDay,
         startTime,
-        endTime,
-        category: this.guessCategory(activity)
+        endTime
       });
       importedCommitmentsCount++;
     }
@@ -104,17 +98,5 @@ export class CsvImportService {
       errors,
       updatedMembers
     };
-  }
-
-  private guessCategory(activity: string): CommitmentCategory {
-    const s = (activity || '').toLowerCase();
-    if (s.includes('scuola') || s.includes('lezione') || s.includes('liceo')) return 'school';
-    if (s.includes('uni') || s.includes('studio') || s.includes('esame')) return 'university';
-    if (s.includes('calcio') || s.includes('palestra') || s.includes('volley') || s.includes('nuoto') || s.includes('sport') || s.includes('basket')) return 'sport';
-    if (s.includes('lavoro') || s.includes('stage') || s.includes('turno')) return 'work';
-    if (s.includes('scout') || s.includes('clan') || s.includes('reparto')) return 'scout';
-    if (s.includes('famiglia') || s.includes('cena')) return 'family';
-    if (s.includes('parrocchia') || s.includes('chiesa')) return 'parish';
-    return 'other';
   }
 }

@@ -8,22 +8,26 @@ import { TimeUtils, DAYS_METADATA } from './time-utils';
 export class CompatibilityService {
   check(member: ScoutMember, service: SocialService, bufferMin = 15): CompatibilityResult {
     const conflicts: SlotConflict[] = [];
+    let hasAvailableSlot = false;
 
     for (const serviceSlot of service.scheduleSlots) {
+      let slotHasConflict = false;
       for (const commitment of member.commitments) {
         if (TimeUtils.doSlotsOverlap(serviceSlot, commitment, bufferMin)) {
+          slotHasConflict = true;
           const dayLabel = DAYS_METADATA.find(d => d.id === serviceSlot.day)?.labelIt || serviceSlot.day;
           conflicts.push({
             serviceSlot,
             commitment,
-            reason: `${dayLabel} (${commitment.startTime}-${commitment.endTime}): ${commitment.name}`
+            reason: `${dayLabel} (${commitment.startTime}-${commitment.endTime})`
           });
         }
       }
+      if (!slotHasConflict) hasAvailableSlot = true;
     }
 
     return {
-      isCompatible: conflicts.length === 0,
+      isCompatible: hasAvailableSlot,
       conflicts,
       bufferMinutes: bufferMin
     };

@@ -23,21 +23,18 @@ export class MembersViewComponent {
   goToMatrix = output<void>();
 
   searchQuery = signal<string>('');
-  roleFilter = signal<string>('all');
   assignedFilter = signal<string>('all');
   selectedMemberId = signal<string | null>(null);
 
   filteredMembers = computed(() => {
     const list = this.clanData.members();
     const q = this.searchQuery().toLowerCase().trim();
-    const roleF = this.roleFilter();
     const assignedF = this.assignedFilter();
 
     return list.filter(m => {
       const matchQ = !q || `${m.name} ${m.surname}`.toLowerCase().includes(q);
-      const matchRole = roleF === 'all' || m.role === roleF;
       const matchAssigned = assignedF === 'all' ? true : (assignedF === 'assigned' ? !!m.assignedServiceId : !m.assignedServiceId);
-      return matchQ && matchRole && matchAssigned;
+      return matchQ && matchAssigned;
     });
   });
 
@@ -55,6 +52,10 @@ export class MembersViewComponent {
   getService(serviceId?: string): SocialService | undefined {
     if (!serviceId) return undefined;
     return this.clanData.services().find(s => s.id === serviceId);
+  }
+
+  invertAllCommitments() {
+    this.clanData.invertAllMembersCommitments();
   }
 
   deleteMember(id: string) {

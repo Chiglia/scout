@@ -7,35 +7,17 @@ export interface TimeSlot {
     notes?: string;
 }
 
-export type CommitmentCategory =
-    | 'school'
-    | 'university'
-    | 'sport'
-    | 'family'
-    | 'work'
-    | 'scout'
-    | 'health'
-    | 'parish'
-    | 'other';
-
 export interface Commitment {
     id: string;
-    name: string;
     day: DayOfWeek;
     startTime: string;
     endTime: string;
-    category: CommitmentCategory;
-    notes?: string;
 }
-
-export type ScoutRole = 'novizio' | 'rover' | 'scolta';
 
 export interface ScoutMember {
     id: string;
     name: string;
     surname: string;
-    role: ScoutRole;
-    year?: number; // 1, 2, 3, 4
     notes?: string;
     commitments: Commitment[];
     assignedServiceId?: string; // id of assigned social service

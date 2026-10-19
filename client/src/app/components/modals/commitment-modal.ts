@@ -2,7 +2,7 @@ import { Component, output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslocoDirective } from '@jsverse/transloco';
-import { Commitment, CommitmentCategory, DayOfWeek } from '../../models/scout.models';
+import { Commitment, DayOfWeek } from '../../models/scout.models';
 
 @Component({
   selector: 'app-commitment-modal',
@@ -17,16 +17,13 @@ export class CommitmentModalComponent {
   save = output<Omit<Commitment, 'id'>>();
 
   formData = {
-    name: '',
     day: 'monday' as DayOfWeek,
     startTime: '16:00',
-    endTime: '18:00',
-    category: 'university' as CommitmentCategory,
-    notes: ''
+    endTime: '18:00'
   };
 
   submit() {
-    if (!this.formData.name.trim() || this.formData.startTime >= this.formData.endTime) return;
+    if (this.formData.startTime >= this.formData.endTime) return;
     this.save.emit(this.formData);
   }
 }

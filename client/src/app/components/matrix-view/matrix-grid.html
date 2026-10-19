@@ -18,7 +18,7 @@
     <table class="w-full text-xs text-left border-collapse">
       <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
         <tr>
-          <th class="py-3 px-4 min-w-[180px] sticky left-0 bg-slate-100 z-10 border-r border-slate-200 shadow-xs">Rover & Scolte</th>
+          <th class="py-3 px-4 min-w-[180px] sticky left-0 bg-slate-100 z-10 border-r border-slate-200 shadow-xs">Rover</th>
           @for (srv of clanData.services(); track srv.id) {
             <th class="py-3 px-3 min-w-[140px] text-center border-r border-slate-200 last:border-r-0">
               <span class="block font-bold text-slate-900 truncate" [title]="srv.name">{{ srv.name }}</span>
@@ -37,7 +37,6 @@
             <td class="py-2.5 px-4 font-semibold text-slate-900 sticky left-0 bg-white hover:bg-slate-50 z-10 border-r border-slate-200 shadow-xs flex items-center justify-between">
               <div>
                 <span>{{ mem.name }} {{ mem.surname }}</span>
-                <span class="text-[10px] text-slate-400 block font-normal capitalize">{{ mem.role }} · Anno {{ mem.year }}</span>
               </div>
               @if (mem.assignedServiceId) { <span class="w-2 h-2 rounded-full bg-blue-600"></span> }
             </td>

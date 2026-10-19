@@ -23,9 +23,9 @@ export class ExportService {
       text += `👥 Posti richiesti: ${service.requiredCapacity}\n`;
 
       if (assigned.length > 0) {
-        text += `👉 Rover & Scolte assegnati:\n`;
+        text += `👉 Rover assegnati:\n`;
         assigned.forEach(s => {
-          text += `   • ${s.name} ${s.surname} (${s.role.toUpperCase()})\n`;
+          text += `   • ${s.name} ${s.surname}\n`;
         });
       } else {
         text += `⚠️ _Nessun ragazzo ancora assegnato_\n`;

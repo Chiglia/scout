@@ -2,7 +2,7 @@ import { Component, output, input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslocoDirective } from '@jsverse/transloco';
-import { ScoutMember, ScoutRole } from '../../models/scout.models';
+import { ScoutMember } from '../../models/scout.models';
 
 @Component({
   selector: 'app-member-modal',
@@ -20,8 +20,6 @@ export class MemberModalComponent implements OnInit {
     id: undefined as string | undefined,
     name: '',
     surname: '',
-    role: 'rover' as ScoutRole,
-    year: 1,
     notes: ''
   };
 
@@ -32,8 +30,6 @@ export class MemberModalComponent implements OnInit {
         id: m.id,
         name: m.name,
         surname: m.surname,
-        role: m.role,
-        year: m.year || 1,
         notes: m.notes || ''
       };
     }
