@@ -326,5 +326,22 @@
       { "id": "c8", "day": "saturday", "startTime": "07:00", "endTime": "13:00" },
       { "id": "c9", "day": "saturday", "startTime": "14:00", "endTime": "19:00" }
     ]
-  }
+  },
+  [
+    {
+      "id": "m_23_javier_serafini",
+      "name": "Javier",
+      "surname": "Serafini",
+      "commitments": [
+        { "id": "c1", "day": "monday", "startTime": "09:30", "endTime": "12:00" },
+        { "id": "c2", "day": "monday", "startTime": "19:30", "endTime": "21:30" },
+        { "id": "c3", "day": "tuesday", "startTime": "09:30", "endTime": "12:00" },
+        { "id": "c4", "day": "wednesday", "startTime": "08:00", "endTime": "10:00" },
+        { "id": "c5", "day": "wednesday", "startTime": "19:30", "endTime": "21:30" },
+        { "id": "c6", "day": "thursday", "startTime": "16:00", "endTime": "18:00" },
+        { "id": "c7", "day": "friday", "startTime": "08:00", "endTime": "10:00" },
+        { "id": "c8", "day": "friday", "startTime": "18:30", "endTime": "21:00" }
+      ]
+    }
+  ]
 ]
