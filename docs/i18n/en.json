@@ -12,6 +12,8 @@
     },
     "actions": {
       "loadSample": "Load Sample Data",
+      "loadSampleMembers": "Load Sample Rovers",
+      "loadSampleServices": "Load Sample Services",
       "resetData": "Reset Data",
       "importData": "Import Commitments",
       "exportWhatsApp": "Share on WhatsApp",
@@ -23,7 +25,6 @@
   "stats": {
     "members": "Rovers",
     "services": "Offered Services",
-    "neededCapacity": "Required Capacity",
     "assigned": "Assigned Scouts",
     "unassigned": "Awaiting Placement",
     "compatibilityRate": "Average Compatibility"
@@ -44,7 +45,6 @@
     "servicesCoverage": "Services Coverage",
     "servicesCoverageSub": "Placement status for each service opportunity",
     "seeAll": "See all",
-    "spots": "slots",
     "assignedTag": "Assigned:",
     "membersStatus": "Clan Members Status",
     "membersStatusSub": "Check who has a service assigned and who is waiting",
@@ -53,7 +53,6 @@
     "withActiveService": "With active service",
     "awaitingPlacement": "Awaiting placement",
     "availableEntities": "Available partners",
-    "neededSlots": "Required slots",
     "averageFeasibility": "Average feasibility",
     "roversAndScolte": "Rovers",
     "assigned": "Assigned",
@@ -115,9 +114,8 @@
     "location": "Location / Address",
     "contact": "Contact Person",
     "phone": "Contact Phone",
-    "capacity": "Required Capacity",
     "requiredHours": "Required Schedule:",
-    "coveredSpots": "Filled Spots:",
+    "assignedScouts": "Assigned scouts:",
     "scoutsCount": "scouts",
     "noAssignedScouts": "No scouts assigned yet",
     "seeCompatibleBoys": "See compatible scouts",
@@ -171,8 +169,8 @@
   },
   "import": {
     "title": "Import Scout Commitments",
-    "csvInstructions": "Paste directly from Excel or Google Sheets, or enter rows formatted as: Name, Surname, Day, Start, End",
-    "examplePlaceholder": "Matteo, Rossi, Monday, 16:00, 18:00\nSofia, Bianchi, Tuesday, 18:30, 20:30",
+    "csvInstructions": "Google Sheets: full name followed by seven columns, Monday to Sunday. Separate busy intervals with commas; leave free days empty or enter LIBERO. Existing members' commitments are replaced. The Name, Surname, Day, Start, End format is also accepted.",
+    "examplePlaceholder": "Mario Rossi\t07:00-07:30, 07:30-08:00\tLIBERO\t18:00-19:00\tLIBERO\tLIBERO\tLIBERO\tLIBERO",
     "pasteLabel": "Paste text or spreadsheet here:",
     "loadDemoAlternative": "Or reload sample demo data",
     "btnProcess": "Process & Import",
@@ -195,6 +193,9 @@
     "autoAssignDone": "Auto-assignment completed: {{count}} scouts placed.",
     "resetDone": "All data has been reset",
     "sampleLoaded": "Sample demo data loaded successfully!",
+    "sampleMembersLoaded": "Sample rovers loaded successfully!",
+    "sampleServicesLoaded": "Sample services loaded successfully!",
+    "sampleLoadFailed": "Could not load sample data.",
     "copied": "Text copied to clipboard!"
   },
   "days": {

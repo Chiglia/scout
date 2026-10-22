@@ -8,7 +8,6 @@
     "location": "Sede del gruppo",
     "contactPerson": "Capo Gruppo",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#2563EB",
     "scheduleSlots": [
       {
@@ -29,7 +28,6 @@
     "location": "Sede del gruppo PD5",
     "contactPerson": "Capo Gruppo",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#2563EB",
     "scheduleSlots": [
       {
@@ -49,7 +47,6 @@
     "location": "Sede DownDadi",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -69,7 +66,6 @@
     "location": "Sede DownDadi",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -89,7 +85,6 @@
     "location": "Sede DownDadi",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -110,7 +105,6 @@
     "location": "Sede ASPEA",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#16A34A",
     "scheduleSlots": [
       {
@@ -137,7 +131,6 @@
     "location": "Sede ASPEA",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#16A34A",
     "scheduleSlots": [
       {
@@ -170,7 +163,6 @@
     "location": "Sede Doposcuola Guizza",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#F59E0B",
     "scheduleSlots": [
       {
@@ -197,7 +189,6 @@
     "location": "Parrocchia Cristo Re",
     "contactPerson": "",
     "contactPhone": "",
-    "requiredCapacity": 3,
     "color": "#F59E0B",
     "scheduleSlots": [
       {
@@ -205,6 +196,49 @@
         "startTime": "16:00",
         "endTime": "19:00",
         "notes": "Attività di catechismo"
+      }
+    ]
+  },
+  {
+    "id": "s_cucine_popolari",
+    "name": "Cucine Popolari",
+    "organization": "Cucine Popolari",
+    "category": "poverty",
+    "description": "Servizio presso le Cucine Popolari.",
+    "location": "Zona stazione",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#DC2626",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "tuesday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "wednesday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "thursday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
       }
     ]
   }
