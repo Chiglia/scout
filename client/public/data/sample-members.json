@@ -375,5 +375,18 @@
       { "id": "c9", "day": "saturday", "startTime": "07:00", "endTime": "22:30" },
       { "id": "c10", "day": "sunday", "startTime": "07:00", "endTime": "18:30" }
     ]
+  },
+  {
+    "id": "m_26_maddalena_pagano",
+    "name": "Maddalena",
+    "surname": "Pagano",
+    "commitments": [
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c2", "day": "tuesday", "startTime": "07:00", "endTime": "15:00" },
+      { "id": "c3", "day": "wednesday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c4", "day": "thursday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c5", "day": "friday", "startTime": "07:00", "endTime": "16:30" },
+      { "id": "c6", "day": "sunday", "startTime": "12:00", "endTime": "14:30" }
+    ]
   }
 ]
