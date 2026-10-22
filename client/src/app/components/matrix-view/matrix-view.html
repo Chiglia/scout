@@ -1,11 +1,11 @@
-<div class="space-y-6" *transloco="let t">
+<div class="matrix-print-area space-y-6" *transloco="let t">
   <!-- Top Bar -->
   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
     <div>
       <h2 class="text-base font-bold text-slate-900">{{ t('matrix.title') }}</h2>
       <p class="text-xs text-slate-500">{{ t('matrix.subtitle') }}</p>
     </div>
-    <div class="flex items-center gap-2">
+    <div class="matrix-screen-only flex items-center gap-2">
       <div class="flex items-center bg-slate-100 p-1 rounded-lg text-xs font-medium">
         <button type="button" (click)="matrixSubView.set('grid')" [class]="matrixSubView() === 'grid' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600'" class="px-3 py-1 rounded-md cursor-pointer">
           {{ t('matrix.matrixView') }}
@@ -20,17 +20,21 @@
       <button type="button" (click)="autoAssign.emit()" class="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-2xs cursor-pointer flex items-center gap-1.5">
         <i class="pi pi-sparkles text-xs"></i> Ottimizza Assegnazioni
       </button>
+      <button type="button" (click)="print()" class="px-3.5 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 shadow-2xs cursor-pointer flex items-center gap-1.5">
+        <i class="pi pi-print text-xs"></i> {{ t('matrix.printPdf') }}
+      </button>
     </div>
   </div>
 
   <!-- SUB-VIEW 1: 2D GRID TABLE -->
-  @if (matrixSubView() === 'grid') {
-    <app-matrix-grid />
-  }
+  <app-matrix-grid
+    class="matrix-print-grid"
+    [class.matrix-print-grid-hidden]="matrixSubView() !== 'grid'"
+  />
 
   <!-- SUB-VIEW 2: BY MEMBER -->
   @if (matrixSubView() === 'byMember') {
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <div class="matrix-screen-details grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       <div class="lg:col-span-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
         <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Seleziona Scout:</span>
         <div class="space-y-1.5 max-h-[550px] overflow-y-auto pr-1">
@@ -89,7 +93,7 @@
 
   <!-- SUB-VIEW 3: BY SERVICE -->
   @if (matrixSubView() === 'byService') {
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <div class="matrix-screen-details grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       <div class="lg:col-span-4 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2">
         <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Seleziona Servizio:</span>
         <div class="space-y-1.5 max-h-[550px] overflow-y-auto pr-1">
@@ -98,7 +102,7 @@
             <button type="button" (click)="selectedServiceId.set(s.id)" [class]="selectedServiceId() === s.id ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-50 hover:bg-slate-100 text-slate-800'" class="w-full text-left p-2.5 rounded-lg text-xs cursor-pointer flex items-center justify-between">
               <span class="truncate pr-2">{{ s.name }}</span>
               <span class="text-[10px] px-1.5 py-0.2 rounded font-mono shrink-0" [ngClass]="selectedServiceId() === s.id ? 'bg-blue-700 text-white' : 'bg-slate-200 text-slate-700'">
-                {{ assigned.length }} / {{ s.requiredCapacity }}
+                {{ assigned.length }} {{ t('services.scoutsCount') }}
               </span>
             </button>
           }

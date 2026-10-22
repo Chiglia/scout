@@ -71,22 +71,10 @@ export class CompatibilityService {
       let minAssigned = 9999;
 
       for (const sId of compatibleIds) {
-        const s = servs.find(item => item.id === sId)!;
         const currentCount = serviceCounts[sId] || 0;
-        if (currentCount < s.requiredCapacity && currentCount < minAssigned) {
+        if (currentCount < minAssigned) {
           minAssigned = currentCount;
           chosenServiceId = sId;
-        }
-      }
-
-      if (!chosenServiceId) {
-        let minOverall = 9999;
-        for (const sId of compatibleIds) {
-          const currentCount = serviceCounts[sId] || 0;
-          if (currentCount < minOverall) {
-            minOverall = currentCount;
-            chosenServiceId = sId;
-          }
         }
       }
 

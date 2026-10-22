@@ -29,7 +29,6 @@ export class ServiceModalComponent implements OnInit {
     location: '',
     contactPerson: '',
     contactPhone: '',
-    requiredCapacity: 2,
     color: '#2563EB',
     scheduleSlots: [] as TimeSlot[]
   };
@@ -50,7 +49,6 @@ export class ServiceModalComponent implements OnInit {
         location: s.location,
         contactPerson: s.contactPerson || '',
         contactPhone: s.contactPhone || '',
-        requiredCapacity: s.requiredCapacity,
         color: s.color || '#2563EB',
         scheduleSlots: [...s.scheduleSlots]
       };

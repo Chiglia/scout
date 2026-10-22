@@ -1,3 +1,121 @@
 @import 'tailwindcss';
 @import 'tailwindcss-primeui';
 @import 'primeicons/primeicons.css';
+
+.matrix-print-grid-hidden {
+  display: none;
+}
+
+@page matrix {
+  size: A4 landscape;
+  margin: 5mm;
+}
+
+@media print {
+  app-home:has(.matrix-print-area) > .min-h-screen > :not(main) {
+    display: none !important;
+  }
+
+  main:has(.matrix-print-area) {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .matrix-print-area {
+    page: matrix;
+    display: block !important;
+    width: 100%;
+    color: #111827;
+  }
+
+  .matrix-print-area > :not(.matrix-print-grid):not(:first-child) {
+    display: none !important;
+  }
+
+  .matrix-print-area > :first-child {
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .matrix-print-area > :first-child h2 {
+    font-size: 14pt !important;
+  }
+
+  .matrix-screen-only,
+  .matrix-screen-details {
+    display: none !important;
+  }
+
+  .matrix-print-grid,
+  .matrix-print-grid-hidden {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .matrix-print-area app-matrix-grid > div {
+    overflow: visible !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .matrix-print-area app-matrix-grid .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  .matrix-print-area app-matrix-grid table {
+    width: 100% !important;
+    table-layout: fixed;
+    font-size: 7pt !important;
+  }
+
+  .matrix-print-area app-matrix-grid th,
+  .matrix-print-area app-matrix-grid td {
+    min-width: 0 !important;
+    padding: 2px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .matrix-print-area app-matrix-grid td {
+    display: table-cell !important;
+  }
+
+  .matrix-print-area app-matrix-grid th:first-child,
+  .matrix-print-area app-matrix-grid td:first-child {
+    width: 12%;
+  }
+
+  .matrix-print-area app-matrix-grid th > span:first-child {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    line-height: 1.15;
+  }
+
+  .matrix-print-area app-matrix-grid [class*='sticky'] {
+    position: static !important;
+  }
+
+  .matrix-print-area app-matrix-grid tr {
+    break-inside: avoid;
+  }
+
+  .matrix-print-area app-matrix-grid button {
+    cursor: default !important;
+  }
+
+  .matrix-print-area .matrix-print-hide {
+    display: none !important;
+  }
+
+  .matrix-print-area,
+  .matrix-print-area * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

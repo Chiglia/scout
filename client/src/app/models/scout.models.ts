@@ -42,7 +42,6 @@ export interface SocialService {
     location: string;
     contactPerson?: string;
     contactPhone?: string;
-    requiredCapacity: number; // number of scouts needed (e.g. 2)
     scheduleSlots: TimeSlot[];
     color?: string; // HEX or tailwind tag
 }
@@ -62,7 +61,6 @@ export interface CompatibilityResult {
 export interface ClanStatistics {
     totalMembers: number;
     totalServices: number;
-    totalCapacityNeeded: number;
     assignedCount: number;
     unassignedCount: number;
     averageCompatibilityRate: number;

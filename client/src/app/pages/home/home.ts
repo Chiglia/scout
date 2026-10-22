@@ -136,8 +136,31 @@ export class Home {
   }
 
   async loadSample() {
-    await this.clanData.loadSampleData();
-    this.showToast(this.transloco.translate('toasts.sampleLoaded'));
+    await this.loadSampleData(this.clanData.loadSampleData(), 'toasts.sampleLoaded');
+  }
+
+  async loadSampleMembers() {
+    await this.loadSampleData(
+      this.clanData.loadSampleMembers(),
+      'toasts.sampleMembersLoaded'
+    );
+  }
+
+  async loadSampleServices() {
+    await this.loadSampleData(
+      this.clanData.loadSampleServices(),
+      'toasts.sampleServicesLoaded'
+    );
+  }
+
+  private async loadSampleData(load: Promise<void>, successMessageKey: string) {
+    try {
+      await load;
+      this.showToast(this.transloco.translate(successMessageKey));
+    } catch (error) {
+      console.error('Failed to load sample data:', error);
+      this.showToast(this.transloco.translate('toasts.sampleLoadFailed'));
+    }
   }
 
   confirmReset() {

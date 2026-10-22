@@ -23,5 +23,6 @@ export class ImportModalComponent {
   process() {
     if (!this.csvText.trim()) return;
     this.importResult = this.clanData.importCsv(this.csvText);
+    if (this.importResult.errors.length === 0) this.csvText = '';
   }
 }

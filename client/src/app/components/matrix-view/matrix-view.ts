@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { ClanDataService } from '../../services/clan-data.service';
 import { CompatibilityService } from '../../services/compatibility.service';
+import { ExportService } from '../../services/export.service';
 import { ScoutMember, SocialService } from '../../models/scout.models';
 import { MatrixGridComponent } from './matrix-grid';
 
@@ -17,6 +18,7 @@ export type MatrixSubView = 'grid' | 'byMember' | 'byService';
 export class MatrixViewComponent {
   clanData = inject(ClanDataService);
   compatService = inject(CompatibilityService);
+  exportService = inject(ExportService);
 
   initialServiceId = input<string | null>(null);
   autoAssign = output<void>();
@@ -67,6 +69,10 @@ export class MatrixViewComponent {
 
   assignScout(memberId: string, serviceId: string) {
     this.clanData.assignMember(memberId, serviceId);
+  }
+
+  print() {
+    this.exportService.triggerPrint();
   }
 
   getAssignedScouts(serviceId: string): ScoutMember[] {

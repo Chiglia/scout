@@ -143,6 +143,7 @@
     "matrixView": "Full Grid Table",
     "scoutView": "By Scout",
     "serviceView": "By Service",
+    "printPdf": "Print / Save PDF",
     "optimizeAssignments": "Optimize Assignments",
     "compatible": "Compatible",
     "incompatible": "Incompatible",

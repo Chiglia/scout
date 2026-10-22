@@ -78,11 +78,23 @@
         </button>
         <button
           type="button"
-          (click)="loadSample()"
+          (click)="loadSampleMembers()"
+          [attr.aria-label]="t('app.actions.loadSampleMembers')"
+          [title]="t('app.actions.loadSampleMembers')"
           class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 hover:bg-slate-100 rounded-lg cursor-pointer"
         >
-          <i class="pi pi-refresh text-xs text-slate-500"></i>
-          <span class="hidden sm:inline">{{ t('app.actions.loadSample') }}</span>
+          <i class="pi pi-users text-xs text-slate-500"></i>
+          <span class="hidden sm:inline">{{ t('app.actions.loadSampleMembers') }}</span>
+        </button>
+        <button
+          type="button"
+          (click)="loadSampleServices()"
+          [attr.aria-label]="t('app.actions.loadSampleServices')"
+          [title]="t('app.actions.loadSampleServices')"
+          class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 hover:bg-slate-100 rounded-lg cursor-pointer"
+        >
+          <i class="pi pi-briefcase text-xs text-slate-500"></i>
+          <span class="hidden sm:inline">{{ t('app.actions.loadSampleServices') }}</span>
         </button>
         <button
           type="button"

@@ -87,9 +87,9 @@
 
           <div>
             <div class="flex items-center justify-between text-xs mb-1.5">
-              <span class="font-bold uppercase tracking-wider text-slate-400 text-[11px]">Posti Coperti:</span>
-              <span class="font-mono font-bold text-xs" [ngClass]="assigned.length >= srv.requiredCapacity ? 'text-emerald-700' : 'text-amber-700'">
-                {{ assigned.length }} / {{ srv.requiredCapacity }} ragazzi
+              <span class="font-bold uppercase tracking-wider text-slate-400 text-[11px]">{{ t('services.assignedScouts') }}</span>
+              <span class="font-mono font-bold text-xs text-slate-700">
+                {{ assigned.length }} {{ t('services.scoutsCount') }}
               </span>
             </div>
             @if (assigned.length > 0) {

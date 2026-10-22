@@ -59,26 +59,14 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
-        <div>
-          <label class="block font-medium text-slate-700 mb-1">{{ t('services.location') }}</label>
-          <input
-            type="text"
-            [(ngModel)]="formData.location"
-            class="w-full p-2 bg-slate-50 border border-slate-300 rounded-lg"
-            placeholder="es. Via Roma 10"
-          />
-        </div>
-        <div>
-          <label class="block font-medium text-slate-700 mb-1">{{ t('services.capacity') }}</label>
-          <input
-            type="number"
-            min="1"
-            max="10"
-            [(ngModel)]="formData.requiredCapacity"
-            class="w-full p-2 bg-slate-50 border border-slate-300 rounded-lg"
-          />
-        </div>
+      <div>
+        <label class="block font-medium text-slate-700 mb-1">{{ t('services.location') }}</label>
+        <input
+          type="text"
+          [(ngModel)]="formData.location"
+          class="w-full p-2 bg-slate-50 border border-slate-300 rounded-lg"
+          placeholder="es. Via Roma 10"
+        />
       </div>
 
       <div class="grid grid-cols-2 gap-3">

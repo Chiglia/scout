@@ -20,7 +20,6 @@ export class ExportService {
       text += `📌 *${service.name}* (${service.organization})\n`;
       text += `🕒 Orario: ${slotsStr}\n`;
       text += `📍 Luogo: ${service.location}\n`;
-      text += `👥 Posti richiesti: ${service.requiredCapacity}\n`;
 
       if (assigned.length > 0) {
         text += `👉 Rover assegnati:\n`;

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ScoutMember, Commitment } from '../models/scout.models';
 import { TimeUtils } from './time-utils';
+import { mergeMembers, parseMembers } from './members-tsv.js';
 
 export interface CsvImportResult {
   importedMembersCount: number;
@@ -14,6 +15,26 @@ export interface CsvImportResult {
 })
 export class CsvImportService {
   parse(csvText: string, existingMembers: ScoutMember[]): CsvImportResult {
+    if (csvText.split(/\r?\n/).some(line => line.split('\t').length >= 6)) {
+      try {
+        const imported = parseMembers(csvText);
+        if (!imported.length) throw new Error('Nessun membro da importare.');
+        const updatedMembers = mergeMembers(imported, existingMembers);
+        return {
+          importedMembersCount: imported.length,
+          importedCommitmentsCount: imported.reduce((total, member) => total + member.commitments.length, 0),
+          errors: [],
+          updatedMembers
+        };
+      } catch (error) {
+        return {
+          importedMembersCount: 0,
+          importedCommitmentsCount: 0,
+          errors: [error instanceof Error ? error.message : String(error)],
+          updatedMembers: existingMembers
+        };
+      }
+    }
     const lines = csvText.trim().split(/\r?\n/);
     const errors: string[] = [];
     if (lines.length === 0) {

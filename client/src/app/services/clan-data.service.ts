@@ -26,7 +26,6 @@ export class ClanDataService {
     const servs = this.services();
     const buffer = this.bufferMinutes();
 
-    const totalCapacityNeeded = servs.reduce((acc, s) => acc + (s.requiredCapacity || 0), 0);
     const assignedCount = mems.filter(m => !!m.assignedServiceId).length;
     const unassignedCount = mems.length - assignedCount;
 
@@ -42,7 +41,6 @@ export class ClanDataService {
     return {
       totalMembers: mems.length,
       totalServices: servs.length,
-      totalCapacityNeeded,
       assignedCount,
       unassignedCount,
       averageCompatibilityRate: totalPairs > 0 ? Math.round((compatiblePairs / totalPairs) * 100) : 0
@@ -61,9 +59,12 @@ export class ClanDataService {
       if (savedBuffer) this.bufferMinutes.set(parseInt(savedBuffer, 10) || 15);
       if (savedMembers && savedServices) {
         const normalizedMembers = this.normalizeMembers(JSON.parse(savedMembers));
+        const normalizedServices = JSON.parse(savedServices) as (SocialService & { requiredCapacity?: number })[];
+        normalizedServices.forEach(service => Reflect.deleteProperty(service, 'requiredCapacity'));
         this.members.set(normalizedMembers);
-        this.services.set(JSON.parse(savedServices));
+        this.services.set(normalizedServices);
         localStorage.setItem(STORAGE_MEMBERS_KEY, JSON.stringify(normalizedMembers));
+        localStorage.setItem(STORAGE_SERVICES_KEY, JSON.stringify(normalizedServices));
       } else {
         this.members.set([]);
         this.services.set([]);
@@ -291,21 +292,35 @@ export class ClanDataService {
     return res;
   }
 
-  async loadSampleData(): Promise<void> {
-    try {
-      const [membersRes, servicesRes] = await Promise.all([
-        fetch('data/sample-members.json'),
-        fetch('data/sample-services.json')
-      ]);
-      const members = await membersRes.json();
-      const services = await servicesRes.json();
-      this.members.set(this.normalizeMembers(members));
-      this.services.set(services);
-      this.bufferMinutes.set(15);
-      this.saveToStorage();
-    } catch (e) {
-      console.error('Failed to load sample json data:', e);
+  private async fetchSampleData<T>(path: string): Promise<T> {
+    const response = await fetch(path);
+    if (!response.ok) {
+      throw new Error(`Failed to load ${path}: ${response.status} ${response.statusText}`);
     }
+    return response.json() as Promise<T>;
+  }
+
+  async loadSampleMembers(): Promise<void> {
+    const members = await this.fetchSampleData<ScoutMember[]>('data/sample-members.json');
+    this.members.set(this.normalizeMembers(members));
+    this.saveToStorage();
+  }
+
+  async loadSampleServices(): Promise<void> {
+    const services = await this.fetchSampleData<SocialService[]>('data/sample-services.json');
+    this.services.set(services);
+    this.saveToStorage();
+  }
+
+  async loadSampleData(): Promise<void> {
+    const [members, services] = await Promise.all([
+      this.fetchSampleData<ScoutMember[]>('data/sample-members.json'),
+      this.fetchSampleData<SocialService[]>('data/sample-services.json')
+    ]);
+    this.members.set(this.normalizeMembers(members));
+    this.services.set(services);
+    this.bufferMinutes.set(15);
+    this.saveToStorage();
   }
 
   resetAll() {

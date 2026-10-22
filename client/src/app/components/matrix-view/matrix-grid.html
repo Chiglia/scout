@@ -47,7 +47,7 @@
                 @if (isAssignedHere) {
                   <div class="inline-flex flex-col items-center">
                     <span class="px-2 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded-md">Assegnato</span>
-                    <button type="button" (click)="unassignScout(mem.id)" class="text-[9px] text-red-500 hover:underline mt-0.5 cursor-pointer">Rimuovi</button>
+                    <button type="button" (click)="unassignScout(mem.id)" class="matrix-print-hide text-[9px] text-red-500 hover:underline mt-0.5 cursor-pointer">Rimuovi</button>
                   </div>
                 } @else if (compat.isCompatible) {
                   <button type="button" (click)="assignScout(mem.id, srv.id)" class="w-7 h-7 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 inline-flex items-center justify-center font-bold text-xs cursor-pointer" title="Libero! Clicca per assegnare">

@@ -12,6 +12,8 @@
     },
     "actions": {
       "loadSample": "Carica Dati Esempio",
+      "loadSampleMembers": "Carica Rover",
+      "loadSampleServices": "Carica Servizi",
       "resetData": "Azzera Dati",
       "importData": "Importa Impegni",
       "exportWhatsApp": "Condividi su WhatsApp",
@@ -23,7 +25,6 @@
   "stats": {
     "members": "Rover",
     "services": "Servizi Proposti",
-    "neededCapacity": "Fabbisogno Posti",
     "assigned": "Ragazzi Assegnati",
     "unassigned": "In Attesa di Servizio",
     "compatibilityRate": "Compatibilità Media"
@@ -44,7 +45,6 @@
     "servicesCoverage": "Copertura Servizi",
     "servicesCoverageSub": "Stato di assegnazione per ciascuna realtà proposta",
     "seeAll": "Vedi tutti",
-    "spots": "posti",
     "assignedTag": "Assegnati:",
     "membersStatus": "Stato Ragazzi del Clan",
     "membersStatusSub": "Verifica chi ha già un servizio e chi è in attesa",
@@ -53,7 +53,6 @@
     "withActiveService": "Con servizio attivo",
     "awaitingPlacement": "Da collocare",
     "availableEntities": "Realtà disponibili",
-    "neededSlots": "Fabbisogno posti",
     "averageFeasibility": "Fattibilità media",
     "roversAndScolte": "Rover",
     "assigned": "Assegnato",
@@ -115,9 +114,8 @@
     "location": "Luogo / Indirizzo",
     "contact": "Referente",
     "phone": "Telefono Referente",
-    "capacity": "Posti Richiesti",
     "requiredHours": "Orari Richiesti:",
-    "coveredSpots": "Posti Coperti:",
+    "assignedScouts": "Ragazzi assegnati:",
     "scoutsCount": "ragazzi",
     "noAssignedScouts": "Nessun ragazzo ancora assegnato",
     "seeCompatibleBoys": "Vedi ragazzi compatibili",
@@ -143,6 +141,7 @@
     "matrixView": "Tabella Completa",
     "scoutView": "Vista per Ragazzo",
     "serviceView": "Vista per Servizio",
+    "printPdf": "Stampa / Salva PDF",
     "optimizeAssignments": "Ottimizza Assegnazioni",
     "compatible": "Compatibile",
     "incompatible": "Incompatibile",
@@ -170,8 +169,8 @@
   },
   "import": {
     "title": "Importa Impegni Ragazzi",
-    "csvInstructions": "Incolla direttamente le righe da Excel o Google Sheets, oppure scrivi con formato: Nome, Cognome, Giorno, Dalle, Alle",
-    "examplePlaceholder": "Matteo, Rossi, Lunedì, 16:00, 18:00\nSofia, Bianchi, Martedì, 18:30, 20:30",
+    "csvInstructions": "Google Fogli: nome completo e sette colonne da lunedì a domenica. Fasce occupate separate da virgole, celle vuote o LIBERO per i giorni liberi. Gli impegni delle persone presenti vengono sostituiti. È accettato anche il formato Nome, Cognome, Giorno, Dalle, Alle.",
+    "examplePlaceholder": "Nome completo\tLunedì\tMartedì\tMercoledì\tGiovedì\tVenerdì\tSabato\tDomenica\nMario Rossi\t07:00-07:30, 07:30-08:00\tLIBERO\t18:00-19:00\tLIBERO\tLIBERO\tLIBERO\tLIBERO",
     "pasteLabel": "Incolla qui il testo o foglio:",
     "loadDemoAlternative": "Oppure ricarica i dati demo di esempio",
     "btnProcess": "Elabora e Importa",
@@ -194,6 +193,9 @@
     "autoAssignDone": "Auto-assegnazione completata: {{count}} ragazzi posizionati.",
     "resetDone": "Tutti i dati sono stati cancellati",
     "sampleLoaded": "Dati demo caricati con successo!",
+    "sampleMembersLoaded": "Rover demo caricati con successo!",
+    "sampleServicesLoaded": "Servizi demo caricati con successo!",
+    "sampleLoadFailed": "Impossibile caricare i dati demo.",
     "copied": "Testo copiato negli appunti!"
   },
   "days": {
