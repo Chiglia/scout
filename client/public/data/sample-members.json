@@ -341,5 +341,23 @@
       { "id": "c7", "day": "friday", "startTime": "08:00", "endTime": "10:00" },
       { "id": "c8", "day": "friday", "startTime": "18:30", "endTime": "21:00" }
     ]
+  },
+  {
+    "id": "m_24_valeria_poli",
+    "name": "Valeria",
+    "surname": "Poli",
+    "year": 2,
+    "commitments": [
+      { "id": "c1", "day": "monday", "startTime": "07:00", "endTime": "17:30" },
+      { "id": "c2", "day": "monday", "startTime": "18:30", "endTime": "19:00" },
+      { "id": "c3", "day": "tuesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c4", "day": "wednesday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c5", "day": "wednesday", "startTime": "16:30", "endTime": "20:00" },
+      { "id": "c6", "day": "thursday", "startTime": "07:00", "endTime": "13:30" },
+      { "id": "c7", "day": "thursday", "startTime": "14:30", "endTime": "17:30" },
+      { "id": "c8", "day": "friday", "startTime": "07:00", "endTime": "14:00" },
+      { "id": "c9", "day": "saturday", "startTime": "07:00", "endTime": "09:30" },
+      { "id": "c10", "day": "saturday", "startTime": "10:00", "endTime": "13:30" }
+    ]
   }
 ]
