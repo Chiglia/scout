@@ -44,9 +44,9 @@
     "organization": "DownDadi",
     "category": "disability",
     "description": "Attività di ballo dedicata ai ragazzi.",
-    "location": "Sede DownDadi",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Altichiero, via Tione 1",
+    "contactPerson": "Carlo Casabianca",
+    "contactPhone": "3407298736",
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -63,9 +63,9 @@
     "organization": "DownDadi",
     "category": "disability",
     "description": "Attività di ballo dedicata ai bambini.",
-    "location": "Sede DownDadi",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Altichiero, via Tione 1",
+    "contactPerson": "Carlo Casabianca",
+    "contactPhone": "3407298736",
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -82,9 +82,9 @@
     "organization": "DownDadi",
     "category": "disability",
     "description": "Attività AttivaMente presso DownDadi.",
-    "location": "Sede DownDadi",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Via Corte Calando",
+    "contactPerson": "Carlo Casabianca",
+    "contactPhone": "3407298736",
     "color": "#9333EA",
     "scheduleSlots": [
       {
@@ -102,9 +102,9 @@
     "organization": "ASPEA",
     "category": "association",
     "description": "Servizio promozionale presso ASPEA.",
-    "location": "Sede ASPEA",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Stadio Colbacchini",
+    "contactPerson": "Marco Ravazzolo",
+    "contactPhone": "3401254587",
     "color": "#16A34A",
     "scheduleSlots": [
       {
@@ -128,9 +128,9 @@
     "organization": "ASPEA",
     "category": "association",
     "description": "Servizio presso ASPEA dedicato agli agonisti.",
-    "location": "Sede ASPEA",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Stadio Colbacchini",
+    "contactPerson": "Marco Ravazzolo",
+    "contactPhone": "3401254587",
     "color": "#16A34A",
     "scheduleSlots": [
       {
@@ -160,9 +160,9 @@
     "organization": "Doposcuola Guizza",
     "category": "education",
     "description": "Servizio di doposcuola presso Guizza.",
-    "location": "Sede Doposcuola Guizza",
-    "contactPerson": "",
-    "contactPhone": "",
+    "location": "Parrocchia di Santa Teresa",
+    "contactPerson": "Suor Marina",
+    "contactPhone": "3331901176",
     "color": "#F59E0B",
     "scheduleSlots": [
       {
@@ -179,7 +179,31 @@
       }
     ]
   },
-
+  {
+    "id": "s_doposcuola_CristoRe",
+    "name": "Doposcuola Cristo Re",
+    "organization": "Doposcuola Cristo Re",
+    "category": "education",
+    "description": "Servizio di doposcuola presso Cristo Re.",
+    "location": "Parrocchia Cristo Re",
+    "contactPerson": "Paola Ferigo",
+    "contactPhone": "3477867630",
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "tuesday",
+        "startTime": "16:15",
+        "endTime": "17:30",
+        "notes": "Attività di doposcuola"
+      },
+      {
+        "day": "thursday",
+        "startTime": "16:15",
+        "endTime": "17:30",
+        "notes": "Attività di doposcuola"
+      }
+    ]
+  },
   {
     "id": "s_catechismo_cristo_re",
     "name": "Catechismo Cristo Re",
@@ -200,13 +224,32 @@
     ]
   },
   {
+    "id": "s_bar_cristo_re",
+    "name": "Bar Cristo Re",
+    "organization": "Cristo Re",
+    "category": "social",
+    "description": "Servizio di bar presso la parrocchia Cristo Re.",
+    "location": "Parrocchia Cristo Re",
+    "contactPerson": "Giorgio Masiero",
+    "contactPhone": "+39 333 415 1875",
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "saturday",
+        "startTime": "16:00",
+        "endTime": "19:00",
+        "notes": "Attività di bar"
+      }
+    ]
+  },
+  {
     "id": "s_cucine_popolari",
     "name": "Cucine Popolari",
     "organization": "Cucine Popolari",
     "category": "poverty",
     "description": "Servizio presso le Cucine Popolari.",
     "location": "Zona stazione",
-    "contactPerson": "",
+    "contactPerson": "chiedi a Pietro Zanon",
     "contactPhone": "",
     "color": "#DC2626",
     "scheduleSlots": [
