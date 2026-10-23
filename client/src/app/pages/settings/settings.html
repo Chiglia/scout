@@ -1,0 +1,79 @@
+<main class="min-h-screen bg-slate-50 text-slate-900" *transloco="let t">
+  <header class="border-b border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
+      <a
+        routerLink="/"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900"
+      >
+        <i class="pi pi-arrow-left text-xs" aria-hidden="true"></i>
+        {{ t('app.title') }}
+      </a>
+      <span class="text-xs font-medium text-slate-500">{{ t('settings.title') }}</span>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold tracking-tight text-slate-900">{{ t('settings.title') }}</h1>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-2">
+      <section class="rounded-xl border border-slate-200 bg-white p-5 shadow-xs sm:p-6">
+        <div class="mb-5 flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <i class="pi pi-globe" aria-hidden="true"></i>
+          </span>
+          <h2 class="text-base font-semibold text-slate-900">{{ t('settings.language') }}</h2>
+        </div>
+        <div class="flex gap-2">
+          <button
+            type="button"
+            (click)="setLanguage('it')"
+            [attr.aria-pressed]="currentLang === 'it'"
+            [class]="currentLang === 'it'
+              ? 'border-blue-600 bg-blue-50 text-blue-700'
+              : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'"
+            class="rounded-lg border px-4 py-2 text-sm font-medium transition-colors cursor-pointer"
+          >
+            Italiano
+          </button>
+          <button
+            type="button"
+            (click)="setLanguage('en')"
+            [attr.aria-pressed]="currentLang === 'en'"
+            [class]="currentLang === 'en'
+              ? 'border-blue-600 bg-blue-50 text-blue-700'
+              : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'"
+            class="rounded-lg border px-4 py-2 text-sm font-medium transition-colors cursor-pointer"
+          >
+            English
+          </button>
+        </div>
+      </section>
+
+      <section class="rounded-xl border border-slate-200 bg-white p-5 shadow-xs sm:p-6">
+        <div class="mb-5 flex items-center gap-3">
+          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-600">
+            <i class="pi pi-car" aria-hidden="true"></i>
+          </span>
+          <h2 class="text-base font-semibold text-slate-900">{{ t('buffer.label') }}</h2>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          @for (option of bufferOptions; track option.minutes) {
+            <button
+              type="button"
+              (click)="clanData.setBuffer(option.minutes)"
+              [attr.aria-pressed]="clanData.bufferMinutes() === option.minutes"
+              [class]="clanData.bufferMinutes() === option.minutes
+                ? 'border-blue-600 bg-blue-50 text-blue-700'
+                : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'"
+              class="rounded-lg border px-3 py-2 text-sm font-medium transition-colors cursor-pointer"
+            >
+              {{ t(option.label) }}
+            </button>
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,245 @@
+[
+  {
+    "id": "s_servizio_associativo_pd6",
+    "name": "Servizio Associativo PD6",
+    "organization": "AGESCI",
+    "category": "association",
+    "description": "Servizio associativo presso il gruppo scout.",
+    "location": "Sede del gruppo",
+    "contactPerson": "Capo Gruppo",
+    "contactPhone": "",
+    "color": "#2563EB",
+    "scheduleSlots": [
+      {
+        "day": "sunday",
+        "startTime": "08:30",
+        "endTime": "12:30",
+        "notes": "Servizio associativo della domenica mattina"
+      }
+    ]
+  },
+
+  {
+    "id": "s_servizio_associativo_pd5",
+    "name": "Servizio associativo PD5",
+    "organization": "AGESCI PD5",
+    "category": "association",
+    "description": "Servizio associativo presso il gruppo scout PD5.",
+    "location": "Sede del gruppo PD5",
+    "contactPerson": "Capo Gruppo",
+    "contactPhone": "",
+    "color": "#2563EB",
+    "scheduleSlots": [
+      {
+        "day": "saturday",
+        "startTime": "16:00",
+        "endTime": "19:00",
+        "notes": "Servizio associativo del sabato pomeriggio"
+      }
+    ]
+  },
+  {
+    "id": "s_downdadi_ballo_ragazzi",
+    "name": "DownDadi ballo ragazzi",
+    "organization": "DownDadi",
+    "category": "disability",
+    "description": "Attività di ballo dedicata ai ragazzi.",
+    "location": "Sede DownDadi",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#9333EA",
+    "scheduleSlots": [
+      {
+        "day": "tuesday",
+        "startTime": "16:00",
+        "endTime": "18:00",
+        "notes": "Attività di ballo ragazzi"
+      }
+    ]
+  },
+  {
+    "id": "s_downdadi_ballo_bimbi",
+    "name": "DownDadi ballo bimbi",
+    "organization": "DownDadi",
+    "category": "disability",
+    "description": "Attività di ballo dedicata ai bambini.",
+    "location": "Sede DownDadi",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#9333EA",
+    "scheduleSlots": [
+      {
+        "day": "tuesday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Attività per bambini"
+      }
+    ]
+  },
+  {
+    "id": "s_downdadi_attivamente",
+    "name": "DownDadi AttivaMente",
+    "organization": "DownDadi",
+    "category": "disability",
+    "description": "Attività AttivaMente presso DownDadi.",
+    "location": "Sede DownDadi",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#9333EA",
+    "scheduleSlots": [
+      {
+        "day": "friday",
+        "startTime": "14:30",
+        "endTime": "16:00",
+        "notes": "Attività AttivaMente"
+      }
+    ]
+  },
+
+  {
+    "id": "s_aspea_promozionale",
+    "name": "Aspea promozionale",
+    "organization": "ASPEA",
+    "category": "association",
+    "description": "Servizio promozionale presso ASPEA.",
+    "location": "Sede ASPEA",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#16A34A",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:30",
+        "endTime": "19:45",
+        "notes": "Attività promozionale"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:30",
+        "endTime": "19:45",
+        "notes": "Attività promozionale"
+      }
+    ]
+  },
+
+  {
+    "id": "s_aspea_agonisti",
+    "name": "ASPEA agonisti",
+    "organization": "ASPEA",
+    "category": "association",
+    "description": "Servizio presso ASPEA dedicato agli agonisti.",
+    "location": "Sede ASPEA",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#16A34A",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      },
+      {
+        "day": "wednesday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:15",
+        "endTime": "20:00",
+        "notes": "Attività agonisti"
+      }
+    ]
+  },
+
+  {
+    "id": "s_doposcuola_guizza",
+    "name": "Doposcuola Guizza",
+    "organization": "Doposcuola Guizza",
+    "category": "education",
+    "description": "Servizio di doposcuola presso Guizza.",
+    "location": "Sede Doposcuola Guizza",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "tuesday",
+        "startTime": "16:15",
+        "endTime": "18:00",
+        "notes": "Attività di doposcuola"
+      },
+      {
+        "day": "thursday",
+        "startTime": "16:15",
+        "endTime": "18:00",
+        "notes": "Attività di doposcuola"
+      }
+    ]
+  },
+
+  {
+    "id": "s_catechismo_cristo_re",
+    "name": "Catechismo Cristo Re",
+    "organization": "Cristo Re",
+    "category": "education",
+    "description": "Servizio di catechismo presso la parrocchia Cristo Re.",
+    "location": "Parrocchia Cristo Re",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#F59E0B",
+    "scheduleSlots": [
+      {
+        "day": "saturday",
+        "startTime": "16:00",
+        "endTime": "19:00",
+        "notes": "Attività di catechismo"
+      }
+    ]
+  },
+  {
+    "id": "s_cucine_popolari",
+    "name": "Cucine Popolari",
+    "organization": "Cucine Popolari",
+    "category": "poverty",
+    "description": "Servizio presso le Cucine Popolari.",
+    "location": "Zona stazione",
+    "contactPerson": "",
+    "contactPhone": "",
+    "color": "#DC2626",
+    "scheduleSlots": [
+      {
+        "day": "monday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "tuesday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "wednesday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "thursday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      },
+      {
+        "day": "friday",
+        "startTime": "18:00",
+        "endTime": "19:30",
+        "notes": "Servizio serale"
+      }
+    ]
+  }
+]

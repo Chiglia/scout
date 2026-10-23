@@ -1,0 +1,176 @@
+<div class="sheets-page" *transloco="let t">
+  <header class="sheets-toolbar">
+    <a routerLink="/" class="back-link"
+      ><i class="pi pi-arrow-left" aria-hidden="true"></i> {{ t('sheets.back') }}</a
+    >
+    <h1>{{ t('sheets.title') }}</h1>
+    <button type="button" class="print-button" [disabled]="!cards().length" (click)="print()">
+      <i class="pi pi-print" aria-hidden="true"></i> {{ t('sheets.print') }}
+    </button>
+  </header>
+
+  <main class="sheets-layout">
+    <aside class="sheets-options" [attr.aria-label]="t('sheets.options')">
+      <h2>{{ t(editingId() ? 'sheets.edit' : 'sheets.new') }}</h2>
+      <form #sheetForm="ngForm" (ngSubmit)="sheetForm.valid && saveCard(sheetForm)">
+        <label for="sheet-rover">{{ t('sheets.rover') }}</label>
+        <p-autocomplete
+          inputId="sheet-rover"
+          name="rover"
+          [ngModel]="draft.roverName"
+          (ngModelChange)="draft.roverName = $event ?? ''"
+          [suggestions]="memberSuggestions()"
+          (completeMethod)="filterSuggestions($event, 'members')"
+          [dropdown]="true"
+          [forceSelection]="false"
+          [fluid]="true"
+          [delay]="0"
+          [showEmptyMessage]="false"
+          [maxlength]="120"
+          appendTo="body"
+          panelStyleClass="service-sheets-suggestions"
+          required
+        />
+        <label for="sheet-service">{{ t('sheets.serviceName') }}</label>
+        <p-autocomplete
+          inputId="sheet-service"
+          name="service"
+          [ngModel]="draft.serviceName"
+          (ngModelChange)="chooseService($event)"
+          [suggestions]="serviceSuggestions()"
+          (completeMethod)="filterSuggestions($event, 'services')"
+          [dropdown]="true"
+          [forceSelection]="false"
+          [fluid]="true"
+          [delay]="0"
+          [showEmptyMessage]="false"
+          [maxlength]="160"
+          appendTo="body"
+          panelStyleClass="service-sheets-suggestions"
+          required
+        />
+        <label for="sheet-location">{{ t('sheets.locationOptional') }}</label>
+        <input
+          pInputText
+          id="sheet-location"
+          name="location"
+          [(ngModel)]="draft.location"
+          maxlength="200"
+        />
+        <label for="sheet-schedule">{{ t('sheets.scheduleOptional') }}</label>
+        <textarea
+          pTextarea
+          id="sheet-schedule"
+          name="schedule"
+          [(ngModel)]="draft.schedule"
+          rows="4"
+          maxlength="600"
+        ></textarea>
+        <label for="sheet-contact">{{ t('sheets.contactOptional') }}</label>
+        <input
+          pInputText
+          id="sheet-contact"
+          name="contact"
+          [(ngModel)]="draft.contactPerson"
+          maxlength="120"
+        />
+        <label for="sheet-phone">{{ t('sheets.phoneOptional') }}</label>
+        <input
+          pInputText
+          id="sheet-phone"
+          name="phone"
+          type="tel"
+          [(ngModel)]="draft.contactPhone"
+          maxlength="60"
+        />
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="save-button"
+            [disabled]="!draft.roverName.trim() || !draft.serviceName.trim()"
+          >
+            <i [class]="editingId() ? 'pi pi-check' : 'pi pi-plus'" aria-hidden="true"></i>
+            {{ t(editingId() ? 'sheets.save' : 'sheets.add') }}
+          </button>
+          @if (editingId()) {
+            <button type="button" class="cancel-button" (click)="resetDraft()">
+              {{ t('sheets.cancel') }}
+            </button>
+          }
+        </div>
+      </form>
+      <p class="sheet-count">{{ t('sheets.count', { count: sheets().length }) }}</p>
+    </aside>
+
+    <section class="sheets-preview" [attr.aria-label]="t('sheets.preview')">
+      @for (sheet of sheets(); track $index) {
+        <div class="a4-sheet">
+          @for (entry of sheet; track entry.id) {
+            <article class="service-slip" [class.compact]="entry.scheduleLines.length > 6">
+              <div class="slip-ornaments" aria-hidden="true">
+                <span class="frame-corner top-left"></span>
+                <span class="frame-corner top-right"></span>
+                <span class="frame-corner bottom-left"></span>
+                <span class="frame-corner bottom-right"></span>
+                <span class="frame-flourish top"></span>
+                <span class="frame-flourish bottom"></span>
+              </div>
+              <div class="slip-actions">
+                <button
+                  type="button"
+                  (click)="editCard(entry)"
+                  [attr.title]="t('sheets.edit') + ': ' + entry.roverName"
+                  [attr.aria-label]="t('sheets.edit') + ': ' + entry.roverName"
+                >
+                  <i class="pi pi-pencil" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  (click)="removeCard(entry.id)"
+                  [attr.title]="t('sheets.remove') + ': ' + entry.roverName"
+                  [attr.aria-label]="t('sheets.remove') + ': ' + entry.roverName"
+                >
+                  <i class="pi pi-trash" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="slip-heading">
+                <span class="slip-kicker">{{ t('sheets.service') }}</span>
+                <h2>{{ entry.roverName }}</h2>
+              </div>
+              <h3>{{ entry.serviceName }}</h3>
+              @if (entry.location) {
+                <p class="slip-location"><strong>{{ t('sheets.location') }}:</strong> {{ entry.location }}</p>
+              }
+              <div class="slip-schedule">
+                <h4>{{ t('sheets.schedule') }}</h4>
+                @if (entry.scheduleLines.length) {
+                  <ul [class.two-columns]="entry.scheduleLines.length > 4">
+                    @for (line of entry.scheduleLines; track $index) {
+                      <li>{{ line }}</li>
+                    }
+                  </ul>
+                } @else {
+                  <p>{{ t('sheets.noSchedule') }}</p>
+                }
+              </div>
+              @if (entry.contactPerson || entry.contactPhone) {
+                <div class="slip-contact">
+                  <h4>{{ t('sheets.contact') }}</h4>
+                  <p>
+                    {{ entry.contactPerson }}<span>{{ entry.contactPhone }}</span>
+                  </p>
+                </div>
+              }
+              <span class="slip-staff">Staff RS</span>
+            </article>
+          }
+          @if (sheet.length === 1) {
+            <div class="blank-slip" aria-hidden="true"></div>
+          }
+        </div>
+      } @empty {
+        <p class="empty-preview">{{ t('sheets.empty') }}</p>
+      }
+    </section>
+  </main>
+</div>

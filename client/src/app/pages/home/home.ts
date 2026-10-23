@@ -54,7 +54,7 @@ export class Home {
   isCommitmentModalOpen = signal(false);
   isImportModalOpen = signal(false);
   isWhatsAppModalOpen = signal(false);
-  isConfirmResetOpen = signal(false);
+  resetAction = signal<'all' | 'assignments' | null>(null);
 
   editingMember = signal<ScoutMember | null>(null);
   editingService = signal<SocialService | null>(null);
@@ -164,8 +164,17 @@ export class Home {
   }
 
   confirmReset() {
-    this.clanData.resetAll();
-    this.isConfirmResetOpen.set(false);
-    this.showToast(this.transloco.translate('toasts.resetDone'));
+    const action = this.resetAction();
+    if (!action) return;
+
+    if (action === 'all') {
+      this.clanData.resetAll();
+      this.showToast(this.transloco.translate('toasts.resetDone'));
+    } else {
+      this.clanData.unassignAll();
+      this.showToast(this.transloco.translate('toasts.assignmentsCleared'));
+    }
+
+    this.resetAction.set(null);
   }
 }
